@@ -19,8 +19,8 @@ const subjects = {
 
 // 1. Строка из названий предметов написаных через запятую
 function getSubjectName (array) {
-  const result = Object.keys(array)
-  return '' + result
+  const result = Object.keys(array).join(', ')
+  return result
 }
 console.log(getSubjectName(subjects))
 
@@ -28,7 +28,7 @@ console.log(getSubjectName(subjects))
 function calcStudentsandTeachers (array) {
   const arrayObjects = Object.values(array) // 4. Создать массив из объектов предметов
 
-  let numberOfAll = arrayObjects.reduce((acc, item) => { // 2. Посчитать общее количество студентов и учителей на всех предметах
+  const numberOfAll = arrayObjects.reduce((acc, item) => { // 2. Посчитать общее количество студентов и учителей на всех предметах
     return acc + item.students + item.teachers
   }, 0)
 
@@ -44,8 +44,10 @@ console.log(calcStudentsandTeachers(subjects))
 
 // 5. Получить массив из предметов и отсортировать по количеству преподавателей на факультете от большего к меньшему
 function getSortArray (array) {
-  const sortArr = Object.entries(array).map(([ key, value ]) => ({ key, ...value })).sort((a, b) => b.teachers - a.teachers)
-  const result = sortArr.reduce((acc, item) => acc.concat(item.key), [])
+  const data = Object.entries(array)
+  const newArr = data.map(([ key, value ]) => ({ key, ...value }))
+  const sortNewArr = newArr.sort((a, b) => b.teachers - a.teachers)
+  const result = sortNewArr.reduce((acc, item) => acc.concat(item.key), [])
   return result
 }
 console.log(getSortArray(subjects))
