@@ -3,9 +3,11 @@ const subjects = {
     biology: { students: 120, teachers: 6 },
     geography: { students: 60, teachers: 2 },
     chemistry: { students: 100, teachers: 3 }
-}
+
 //1. Создать строку из названий предметов написанных через запятую 
-console.log(Object.keys(subjects))
+const subjectNames = Object.keys(subjects).join(', ')
+console.log(subjectNames)
+//console.log(Object.keys(subjects))
 //2. Посчитать общее количество студентов и учителей на всех предметах 
 const sumSubjects = Object.values(subjects).reduce((sum, subject) => sum + subject.students + subject.teachers, 0)
 console.log(sumSubjects)
