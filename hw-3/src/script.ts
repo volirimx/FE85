@@ -52,7 +52,7 @@ function getNames (arr: IUser[]): string {
 
 function countCars (arr: IUser[]): number {
     let result = 0
-    arr.forEach(item => {
+    arr.map(item => {
         if(item.cars) {
             result += item.cars.length
         }
@@ -63,23 +63,27 @@ function countCars (arr: IUser[]): number {
 // 3
 
 function filterByEducation (arr: IUser[]): IUser[] {
-    return arr.filter(item => item.hasEducation ? 1 : -1)
+    return arr.filter(item => item.hasEducation ? true : false)
 } 
 
 // 4
 
 function filterByAnimals (arr: IUser[]): IUser[] {
-    return arr.filter(item => item.animals ? -1 : 1)
+    return arr.filter(item => item.animals ? true : false)
 }
 
 // 5
 
 function getCars (arr: IUser[]): string {
-    let result: string[] = []
+    const result: string[] = []
     arr.forEach(item => {
         if(item.cars) {
             result.push(item.cars.join(', '))
         }
     })
-    return result.join(', ')
+    const a = result.join(', ').split(', ')
+    const b = a.filter((item, index) => a.indexOf(item) === index)
+    return b.join(', ')
 }
+
+console.log(getCars(users));
