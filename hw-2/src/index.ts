@@ -1,4 +1,12 @@
 // task 1
+interface IFaculties {
+    id: number;
+    faculty: string;
+    subjects: string[];
+    countStudents: number;
+}
+
+
 const faculties: IFaculties[] = [
     {
         id: 1,
@@ -26,14 +34,28 @@ const faculties: IFaculties[] = [
     }
 ];
 
-interface IFaculties {
-    id: number;
-    faculty: string;
-    subjects: string[];
-    countStudents: number;
-}
 
 // task2
+interface IMovies {
+    id: number;
+    title: string;
+    year: number;
+    released: string;
+    runtime: string;
+    genre: string[];
+    director: string;
+    writer: string;
+    actors: string[];
+    plot: string;
+    country: string;
+    poster: string;
+    imdbRating: number;
+    imdbVotes: number;
+    type: string;
+    boxOffice: string;
+    production: string;
+}
+
 const movies: IMovies[] = [
     {
         id: 1,
@@ -75,22 +97,3 @@ const movies: IMovies[] = [
     },
 ];
 
-interface IMovies {
-    id: number;
-    title: string;
-    year: number;
-    released: string;
-    runtime: string;
-    genre: string[];
-    director: string;
-    writer: string;
-    actors: string[];
-    plot: string;
-    country: string;
-    poster: string;
-    imdbRating: number;
-    imdbVotes: number;
-    type: string;
-    boxOffice: string;
-    production: string;
-}
