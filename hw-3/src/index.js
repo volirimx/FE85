@@ -43,6 +43,6 @@ function filterByAnimals(arr) {
 console.log(filterByAnimals(users));
 // 5. Создать функцию, которая бы принимала массив пользователей и отдавала бы строку с названиями марок автомобилей через запятую
 function filterByBrands(arr) {
-    return [...new Set(arr.reduce((acc, item) => acc.concat(!!(item.cars) ? item.cars : []), []))].join(', ');
+    return Array.from(new Set(arr.reduce((acc, item) => acc.concat(!!(item.cars) ? item.cars : []), []))).join(', ');
 }
 console.log(filterByBrands(users));

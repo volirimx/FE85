@@ -57,6 +57,6 @@ console.log(filterByAnimals(users))
 
 // 5. Создать функцию, которая бы принимала массив пользователей и отдавала бы строку с названиями марок автомобилей через запятую
 function filterByBrands(arr: IUser[]) :string {
-  return [... new Set(arr.reduce((acc: string[], item: IUser): string[] => acc.concat(!!(item.cars) ? item.cars : []), []))].join(', ')
+  return Array.from(new Set(arr.reduce((acc: string[], item: IUser): string[] => acc.concat(!!(item.cars) ? item.cars : []), []))).join(', ')
 }
 console.log(filterByBrands(users))
