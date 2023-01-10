@@ -29,7 +29,7 @@ const users = [
 const names = users.reduce((acc, item) => acc + item.name + ', ', '').slice(0, -2);
 console.log(names);
 // 2. Посчитать общее количeство машин у пользователей
-const cars = users.reduce((acc, item) => acc + (item.cars != null ? item.cars.length : 0), 0);
+const cars = users.reduce((acc, item) => acc + (!!(item.cars) ? item.cars.length : 0), 0);
 console.log(cars);
 // 3. Создать функцию, которая бы принимала массив пользователей и отфильтровывала пользователей на наличие образования
 function filterByEducation(arr) {
@@ -43,6 +43,6 @@ function filterByAnimals(arr) {
 console.log(filterByAnimals(users));
 // 5. Создать функцию, которая бы принимала массив пользователей и отдавала бы строку с названиями марок автомобилей через запятую
 function filterByBrands(arr) {
-    return [...new Set(arr.reduce((acc, item) => acc.concat(item.cars != undefined ? item.cars : []), []))].join(', ');
+    return [...new Set(arr.reduce((acc, item) => acc.concat(!!(item.cars) ? item.cars : []), []))].join(', ');
 }
 console.log(filterByBrands(users));
