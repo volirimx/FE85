@@ -1,0 +1,122 @@
+
+.disabled-burger {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+} 
+.disabled-burger :first-child {
+    transform: rotate(0);
+    width: 2rem;
+    height: 0.25rem;
+    background: black;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+.disabled-burger :nth-child(2) {
+    opacity: 1;
+    transform: translateX(0);
+    width: 2rem;
+    height: 0.25rem;
+    background: black;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+.disabled-burger :nth-child(3) {
+    transform: rotate(0);
+    width: 2rem;
+    height: 0.25rem;
+    background: black;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+.active-burger {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.active-burger :first-child {
+  transform: rotate(45deg);
+  width: 2rem;
+  height: 0.25rem;
+  background: black;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+.active-burger :nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+  width: 2rem;
+  height: 0.25rem;
+  background: black;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+.active-burger :nth-child(3) {
+  transform: rotate(-45deg);
+  width: 2rem;
+  height: 0.25rem;
+  background: black;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+.active-menu {
+  position: absolute;
+  left: 15%;
+  top: 14%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: aqua;
+  width: 300px;
+  height: 30px;
+}
+.disabledMenu {
+  display: none;
+}
+.title {
+  height: 100%;
+  width: 20%;
+  background-color: wheat;
+}
+.content {
+  width: 60%;
+  background-color: sandybrown;
+}
