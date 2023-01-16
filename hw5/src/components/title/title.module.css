@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+.title {
+font-family: 'Roboto';
+font-size: 42px;
+border: 1px solid grey;
+background-color: grey;
+padding: 12px;
+margin-left: 1100px;
+margin-right: 1100px;
+}
+

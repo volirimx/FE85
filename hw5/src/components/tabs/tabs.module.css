@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.tabssection {
+    border-bottom: 3px solid rgb(244, 178, 178);
+    margin-top: 350px;
+    margin-right: 150px;
+    margin-left: 150px;
+    padding-left: 50px;
+    height: 100px;
+    display: flex;
+    justify-content:left;
+    align-items: center;
+}
+.tab1 {
+    font-family: 'Poppins';
+    font-size: 36px;
+    cursor: pointer;
+    width: 300px;
+    text-align: center;
+}
+.tab2 {
+    font-family: 'Poppins';
+    font-size: 36px;
+    cursor: pointer;
+    width: 300px;
+    text-align: center;
+}
+.tab3 {
+    font-family: 'Poppins';
+    font-size: 36px;
+    cursor: pointer;
+    width: 300px;
+    text-align: center;
+}
+
+.tab1:hover {
+    color: red;
+    border-bottom:  4px solid red;
+    padding-bottom: 48px;
+    font-weight: bold;
+}
+.tab2:hover {
+    color: red;
+    border-bottom:  4px solid red;
+    padding-bottom: 48px;
+    font-weight: bold;
+}
+.tab3:hover {
+    color: red;
+    border-bottom:  4px solid red;
+    padding-bottom: 48px;
+    font-weight: bold;
+}
+.tabdisabled1 {
+    font-family: 'Poppins';
+    font-size: 36px;
+    cursor: pointer;
+    width: 300px;
+    text-align: center;
+    color: rgb(245, 143, 143);
+}
+.tabdisabled2 {
+    font-family: 'Poppins';
+    font-size: 36px;
+    cursor: pointer;
+    width: 300px;
+    text-align: center;
+    color: rgb(245, 143, 143);
+}
+.tabdisabled3 {
+    font-family: 'Poppins';
+    font-size: 36px;
+    cursor: pointer;
+    width: 300px;
+    text-align: center;
+    color: rgb(245, 143, 143);
+}

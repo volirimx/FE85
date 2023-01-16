@@ -1,0 +1,70 @@
+.menu__burger {
+    cursor: pointer;
+    margin-left: 100px;
+    margin-top: 40px;
+    margin-right: 100px;
+    border: 2px solid blue;
+    height: 40px;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-bottom: 15px;
+    background-color: #5d5fe3;
+}
+.bar1,
+.bar2,
+.bar3 {
+    width: 35px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.1s;
+}
+.baractive1 {
+    transition: 0.1s;
+    width: 35px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.1s;
+    transform: rotate(-45deg) translate(0, 6px);
+}
+.baractive2 {
+    transition: 0.1s;
+    width: 35px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.1s;
+    display: none;
+}
+.baractive3 {
+    transition: 0.1s;
+    width: 35px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.1s;
+    transform: rotate(45deg) translate(0, -6px);
+}
+.menu__section {
+    display: none;
+}
+.menuactive {
+    display: block;
+    transition: 0.5s;
+    position: absolute;
+    top: 216px;
+    left: 100px;
+    border: 2px solid blue;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 250px;
+    padding-bottom: 250px;
+    text-align: left;
+    background-color: #5d5fe3;
+    opacity: 0.4;
+}
+.part {
+    color: white;
+    font-size: 36px;
+}
