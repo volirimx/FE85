@@ -1,0 +1,26 @@
+.wrapper {
+    margin-top: 50px;
+    display: flex;
+}
+
+.tab {
+    width: 200px;
+    height: 20px;
+    background-color: inherit;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.tab:hover {
+    color: #5567c5;
+}
+
+.active {
+    padding: 10px;
+    width: 200px;
+    border: none;
+    background-color: inherit;
+    border-bottom: 4px solid #5567c5;
+    font-size: 20px;
+}
