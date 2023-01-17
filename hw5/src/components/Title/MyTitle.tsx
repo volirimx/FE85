@@ -1,7 +1,11 @@
 import styles from './Title.module.css';
 
-const MyTitle = () => {
-    return <button className={styles.title}>Sign in</button>
+interface IName {
+    name: string
+}
+
+const MyTitle = (props: IName) => {
+    return <button className={styles.title}>{props.name}</button>
 }
 
 export default MyTitle;

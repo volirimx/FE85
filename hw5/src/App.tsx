@@ -8,7 +8,7 @@ function App() {
   return (
       <div className="App">
           <Header/>
-          <MyTitle/>
+          <MyTitle name={'Sign in'}/>
           <Tabs />
       </div>
   );

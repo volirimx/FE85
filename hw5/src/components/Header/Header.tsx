@@ -16,7 +16,7 @@ const Header = () => {
         users: IUser[]
     }
 
-    const [state, setState] = useState<IState>({
+    const [header, setHeader] = useState<IState>({
         users: [
             {
                 id: 1,
@@ -42,10 +42,10 @@ const Header = () => {
 
     return (
         <header className={styles.header}>
-            <button className={styles.button} onClick={() => setState({...state, isVisible: !state.isVisible})}>
-                <img src={state.isVisible ? crossIcon : hamburgerIcon} alt='#'/>
+            <button className={styles.button} onClick={() => setHeader({...header, isVisible: !header.isVisible})}>
+                <img src={header.isVisible ? crossIcon : hamburgerIcon} alt='#'/>
             </button>
-            {state.isVisible ? <div className={styles.dropdown}>{getUsers(state.users)}</div> : null}
+            {header.isVisible ? <div className={styles.dropdown}>{getUsers(header.users)}</div> : null}
         </header>
     )
 }

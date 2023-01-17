@@ -1,5 +1,5 @@
 import styles from "./Tabs.module.css";
-import {useReducer} from "react";
+import {useReducer, useState} from "react";
 
 const Tabs = () => {
 
@@ -38,19 +38,16 @@ const Tabs = () => {
         ]
     }
 
-    function reducer (state: IInitialState, action: IAction) {
-        switch (action.type) {
-            case 'SET-TAB':
-                return {...state, tabs: initialState.tabs.map(tab => (tab.id === action.id) ? {...tab, isSelected: true} : {...tab, isSelected: false})}
-            default:
-                return initialState
-        }
+    const [tabs, setTabs] = useState(initialState)
+
+    const setActiveTab = (tab: ITab) => {
+        let tabs = {...initialState, tabs: initialState.tabs.map(tabId => (tabId.id === tab.id) ? {...tabId, isSelected: true} : {...tabId, isSelected: false})}
+        return setTabs(tabs)
     }
 
-    const [state, dispatch] = useReducer(reducer, initialState);
 
     const getTabs = () => {
-        return state.tabs.map((tab: ITab) => <button onClick={() => dispatch({type: 'SET-TAB', id: tab.id})} className={tab.isSelected ? styles.active : styles.tab}>{tab.name}</button>)
+        return tabs.tabs.map((tab: ITab) => <button onClick={() =>setActiveTab(tab)} className={tab.isSelected ? styles.active : styles.tab}>{tab.name}</button>)
     }
 
     return (
