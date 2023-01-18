@@ -1,10 +1,15 @@
 
+interface ITitle {
+    titleContent: string
+}
 
-const Title = () => {
+
+
+const CustomTitle = ({ titleContent }: ITitle) => {
     return (
-        <h1>Sign In</h1>
+        <h1>{titleContent}</h1>
     )
 }
 
 
-export default Title
+export default CustomTitle
