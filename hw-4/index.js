@@ -100,10 +100,8 @@ const getArrOfGenre = arr => Array.from(new Set(arr.reduce((acc, item) => acc.co
 // 2. Собрать в массив всех актеров всех фильмов (без повторения)
 const getArrOfActors = arr => Array.from(new Set(arr.reduce((acc, item) => acc.concat(item.actors), [])));
 
-
 // 3. Отсортировать фильмы по рейтингу по убыванию
 const sortByRating = arr => arr.sort((a, b) => b.imdbRating - a.imdbRating);
-
 
 // 4. Создать новый массив, где объекты фильмов будут состоять из следующих полей:
 // id, title, released, plot
