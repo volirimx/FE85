@@ -1,0 +1,23 @@
+.tabs-container {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 20%;
+    left: 38%;
+    width: 400px;
+    height: 75px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.tabs-container div {
+    width: 30%;
+} 
+
+.tabs-container div:hover {
+    cursor: pointer;
+    color: #6b77c0;
+}
+
+.tab-active {
+    border-bottom: 2px solid black;
+}
