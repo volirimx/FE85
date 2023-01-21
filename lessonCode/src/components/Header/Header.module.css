@@ -1,0 +1,10 @@
+.container {
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  background-color: blue;
+}
+
+.subContainer {
+  display: flex;
+}
