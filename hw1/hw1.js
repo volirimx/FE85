@@ -26,46 +26,32 @@ const subjects = {
    }
 }
 
-
+/* 1  задание */
 let stringsubject = Object.keys(subjects).toString();
 console.log(`Предметы :` + stringsubject);
 
 
-let studentsMath = Number(Object.values(subjects.mathematics.students.toString()).join(''));
-let studentsBio = Number(Object.values(subjects.biology.students.toString()).join(''));
-let studentsGeo = Number(Object.values(subjects.geography.students.toString()).join(''));
-let studentsChem = Number(Object.values(subjects.chemistry.students.toString()).join(''));
-let sumstudents = studentsMath + studentsBio + studentsGeo + studentsChem;
-console.log(`Общее количество студентов:` + sumstudents);
-
-
-let teacherSmath = Number(Object.values(subjects.mathematics.teachers.toString()).join(''));
-let teacherBio = Number(Object.values(subjects.biology.teachers.toString()).join(''));
-let teacherGeo = Number(Object.values(subjects.geography.teachers.toString()).join(''));
-let teacherChem = Number(Object.values(subjects.chemistry.teachers.toString()).join(''));
-let sumsTeachers = teacherSmath + teacherBio + teacherGeo + teacherChem;
-console.log(`Общее количество учителей:` + sumsTeachers);
-
-
-let average = sumstudents / Object.values(subjects).length;
-console.log(`Среднее кол-во студентов: ` + average);
-
-
-const arraySubjects = Object.entries(subjects)
-const arrayTeachers = arraySubjects.sort((a, b) => {
-   return b[1].teachers - a[1].teachers;
-});
-console.log(arrayTeachers)
-
-
 /* 2 задание */
-const sumStudentsTeachers = Object.values(subjects).reduce((sum, subject) => sum + subject.students + subject.teachers, 0)
-console.log(`Общее количество учителей:` + sumStudentsTeachers);
+const sumStudents = Object.values(subjects);
+const sumallStudents = sumStudents.map(item => item.students).reduce((prev, curr) => prev + curr, 0);
+console.log(`Общее количество студентов: ` + sumallStudents);
+
+
+const sumTeachers = Object.values(subjects);
+const sumaTeachers = sumTeachers.map(item => item.teachers).reduce((prev, curr) => prev + curr, 0);
+console.log(`Общее количество учителей: ` + sumaTeachers);
 
 /* 3 задание */
-const averageStudents = Object.values(subjects).reduce((sum, subject) => sum + subject.students, 0) / Object.keys(subjects).length
-console.log(`Cреднее количество студентов:` + averageStudents);
 
-/* 4 задание */
+let average = sumallStudents / Object.values(subjects).length;
+console.log(`Среднее кол-во студентов: ` + average);
+
+/* 4 - 5 задание */
+const arraySubjects = Array.from(Object.values(subjects));
+const arrayTeachers = arraySubjects.sort((a, b) => {
+   return b.teachers - a.teachers;
+});
+console.log(arrayTeachers);
+
 const itemObject = Array.from(Object.values(subjects));
 console.log(`Массив обьектов предметов: ` + itemObject);
