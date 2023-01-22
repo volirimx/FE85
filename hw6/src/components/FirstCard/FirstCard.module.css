@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Unbounded:wght@500&display=swap');
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 3px solid rgb(241, 238, 238);
+    background-color: rgb(241, 238, 238);
+    padding: 10px;
+    width: 650px;
+    margin-bottom: 10px;
+}
+.image {
+    width: 300px;
+    height: 300px;
+    margin-left: 40px;
+}
+.date {
+    text-align: left;
+    color: rgb(94, 93, 93);
+    font-size: 20px;
+    font-family: 'Montserrat';
+}
+.title {
+    margin-top: 10px;
+    font-family: 'Unbounded';
+    text-align: left;
+    font-size: 34px;
+    font-weight: bold;
+}
+.text {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 26px;
+    font-family: 'Montserrat';
+}
+.button {
+    border: none;
+    background-color: rgb(241, 238, 238);
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.buttonlike {
+    margin-right: 150px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 190px;
+}
+.buttonsave {
+    margin-left: 200px;
+    margin-top: 110px;
+    display: flex;
+    justify-content: space-around;
+}
