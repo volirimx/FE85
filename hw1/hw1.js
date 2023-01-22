@@ -55,3 +55,4 @@ console.log(arrayTeachers);
 
 const itemObject = Array.from(Object.values(subjects));
 console.log(`Массив обьектов предметов: ` + itemObject);
+
