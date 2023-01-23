@@ -1,0 +1,45 @@
+.post {
+  border-bottom: 1px solid rgb(155, 155, 155);
+}
+
+.post__container {
+  display: flex;
+}
+
+.post__content {
+  flex: 0 1 70%;
+  padding: 0 20px 0 0;
+}
+
+.post__date {
+  margin: 10px 0 0;
+  color: rgb(131, 130, 130)
+}
+
+.post__title {
+  margin: 10px 0 0;
+  color: rgb(0, 0, 0);
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 700;
+}
+
+:is(.post__title, .post__date, .post__description)::first-letter {
+  text-transform: uppercase;
+}
+
+.post__description {
+  margin: 10px 0 0;
+  color: rgb(131, 130, 130);
+}
+
+.post__img {
+  flex: 0 1 30%;
+  height: 200px;
+}
+
+.post__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

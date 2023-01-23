@@ -1,0 +1,36 @@
+.controls {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  border: none;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.buttonLike {
+  background-image: url(../../img/like.png);
+  margin-right: 20px;
+}
+
+.buttonDislike {
+  background-image: url(../../img/dislike.png);
+}
+
+.buttonBookmark {
+  background-image: url(../../img/bookmark.png);
+}
+
+.buttonMenu {
+  background-image: url(../../img/menu.png);
+  margin-left: 20px;
+}
