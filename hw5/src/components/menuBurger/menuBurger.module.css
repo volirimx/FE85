@@ -1,8 +1,6 @@
 .menu__burger {
     cursor: pointer;
-    margin-left: 100px;
     margin-top: 40px;
-    margin-right: 100px;
     border: 2px solid blue;
     height: 40px;
     padding-top: 15px;
@@ -54,7 +52,6 @@
     transition: 0.5s;
     position: absolute;
     top: 216px;
-    left: 100px;
     border: 2px solid blue;
     padding-top: 15px;
     padding-left: 15px;

@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Title from './components/title/title';
 import MenuBurger from './components/menuBurger/menuBurger';
 import Tabs from './components/tabs/tabs';
 
 
-
+const tabs = ['All', 'My Favorite', 'Popular']
 
 function App() {
+    const [activeTab, setActiveTab] = useState(0)
     return (
         <div className="App">
             <Title
@@ -17,11 +18,13 @@ function App() {
                 firstName='Viya'
                 lastName='Silyantieva'
             />
-            <Tabs
-                tab1='All'
-                tab2='My favorite'
-                tab3='Popular'
-            />
+            <div className="tabs">{tabs.map((tab, index) => (<Tabs
+                title={tab}
+                index={index}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+                />))}
+            </div>
         </div>
     );
 }

@@ -1,7 +1,15 @@
 .App {
   text-align: center;
 }
-
+.tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-top: 350px;
+  border-bottom: 3px solid red;
+  margin-left: 50px;
+  margin-right: 50px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
