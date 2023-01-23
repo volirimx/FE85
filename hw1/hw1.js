@@ -26,7 +26,7 @@ const subjects = {
    }
 }
 
-/* 1  задание */
+
 let stringsubject = Object.keys(subjects).toString();
 console.log(`Предметы :` + stringsubject);
 
@@ -55,4 +55,5 @@ console.log(arrayTeachers);
 
 const itemObject = Array.from(Object.values(subjects));
 console.log(`Массив обьектов предметов: ` + itemObject);
+
 
