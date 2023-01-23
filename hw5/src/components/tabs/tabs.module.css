@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.tab {
+    font-family: 'Poppins';
+    font-size: 36px;
+    margin-left: 100px;
+    cursor: pointer;
+}
+.tab:hover {
+    color: red;
+}
+.tabdisabled {
+    margin-left: 100px;
+    font-family: 'Poppins';
+    font-size: 36px;
+    color: rgb(244, 146, 146);
+}
