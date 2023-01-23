@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    max-width: 500px;
+}
+.textcontent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.textcontent div {
+    font-size: medium;
+}
+
+.image {
+    height: 430px;
+}

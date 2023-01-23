@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    height: 600px;
+    max-width: 600px;
+}
+.textcontent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.textcontent div {
+    font-size: larger;
+    overflow: auto;
+}
+.image {
+    max-width: 350px;
+}
