@@ -31,29 +31,27 @@ let stringsubject = Object.keys(subjects).toString();
 console.log(`Предметы :` + stringsubject);
 
 
-/* 2 задание */
-const sumStudents = Object.values(subjects);
-const sumallStudents = sumStudents.map(item => item.students).reduce((prev, curr) => prev + curr, 0);
-console.log(`Общее количество студентов: ` + sumallStudents);
+let studentsMath = Number(Object.values(subjects.mathematics.students.toString()).join(''));
+let studentsBio = Number(Object.values(subjects.biology.students.toString()).join(''));
+let studentsGeo = Number(Object.values(subjects.geography.students.toString()).join(''));
+let studentsChem = Number(Object.values(subjects.chemistry.students.toString()).join(''));
+let sumstudents = studentsMath + studentsBio + studentsGeo + studentsChem;
+console.log(`Общее количество студентов:` + sumstudents);
+
+let teacherSmath = Number(Object.values(subjects.mathematics.teachers.toString()).join(''));
+let teacherBio = Number(Object.values(subjects.biology.teachers.toString()).join(''));
+let teacherGeo = Number(Object.values(subjects.geography.teachers.toString()).join(''));
+let teacherChem = Number(Object.values(subjects.chemistry.teachers.toString()).join(''));
+let sumsTeachers = teacherSmath + teacherBio + teacherGeo + teacherChem;
+console.log(`Общее количество учителей:` + sumsTeachers);
 
 
-const sumTeachers = Object.values(subjects);
-const sumaTeachers = sumTeachers.map(item => item.teachers).reduce((prev, curr) => prev + curr, 0);
-console.log(`Общее количество учителей: ` + sumaTeachers);
-
-/* 3 задание */
-
-let average = sumallStudents / Object.values(subjects).length;
+let average = sumstudents / Object.values(subjects).length;
 console.log(`Среднее кол-во студентов: ` + average);
 
-/* 4 - 5 задание */
-const arraySubjects = Array.from(Object.values(subjects));
+
+const arraySubjects = Object.entries(subjects)
 const arrayTeachers = arraySubjects.sort((a, b) => {
-   return b.teachers - a.teachers;
+   return b[1].teachers - a[1].teachers;
 });
-console.log(arrayTeachers);
-
-const itemObject = Array.from(Object.values(subjects));
-console.log(`Массив обьектов предметов: ` + itemObject);
-
-
+console.log(arrayTeachers)
