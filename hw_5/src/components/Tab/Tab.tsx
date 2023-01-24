@@ -18,7 +18,7 @@ const Tab = ({ item, tab, setTab }: ITab ) => {
   return (
     <div>
       <div className={styles.container}>
-        {item.map((el) => <div className={tab === el.id ? styles.active : ''} onClick={() => setTab(el.id)}>{el.title}</div>)}
+        {item.map((el) => <div key={el.id} className={tab === el.id ? styles.active : ''} onClick={() => setTab(el.id)}>{el.title}</div>)}
       </div>
     </div>
   )
