@@ -1,0 +1,28 @@
+.input {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.input::placeholder {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.form {
+    border: 2px solid #4b4b4b;
+    border-radius: 5px;
+    padding: 20px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2836a0;
+    color: #ececec;
+}
