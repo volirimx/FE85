@@ -1,0 +1,30 @@
+.container {
+	width: 100%;
+	height: 50px;
+	background-color: rgb(97, 97, 224);
+	color: aliceblue;
+}
+
+.menu {
+	width: 50px;
+	height: 50px;
+	background: url(/src/image/menu-show.svg) 12px 12px no-repeat;
+	background-color: blue;
+	border: none;
+	display: flex;
+}
+
+.menu.active {
+	width: 50px;
+	height: 50px;
+	background: url(/src/image/menu-close.svg) 12px 12px no-repeat;
+	background-color: blue;
+}
+
+.hide  {
+	display: none;
+}
+
+.show {
+	display: block;
+}
