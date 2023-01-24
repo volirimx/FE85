@@ -1,0 +1,26 @@
+.tabs {
+  display: flex;
+  margin-top: 100px;
+}
+
+.tabs__item {
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.tabs__item:not(:last-child)  {
+  margin-right: 20px;
+}
+
+.tabs__item.active {
+  border-bottom: 2px solid black;
+}
+
+.tabs__item.hover {
+  color: blue;
+}
+
+.tabs__item.disabled {
+  color: grey;
+}
