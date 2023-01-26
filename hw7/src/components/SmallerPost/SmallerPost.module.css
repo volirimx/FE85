@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    max-width: 500px;
+    height: 400px;
+    margin: 20px 0;
+    justify-content: space-between;
+    background-color: lightblue;
+}
+.textcontent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.textcontent div {
+    font-size: medium;
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    color: rgb(121, 70, 70);
+}
+
+.image {
+    width: 250px;
+}

@@ -1,0 +1,15 @@
+.container {
+    height: 300px;
+    width: 300px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+}
+.container div {
+    font-size: 30px;
+}
+
+.container button {
+    font-size: 30px;
+    height: 80px;
+}

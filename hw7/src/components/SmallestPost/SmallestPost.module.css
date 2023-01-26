@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    max-width: 260px;
+    margin: 20px 0;
+    background-color: lightblue;
+}
+.textcontent{
+    display: flex;
+    flex-direction: column;
+}
+
+.textcontent div {
+    font-size: medium;
+    color: rgb(121, 70, 70);
+}
+
+.image {
+    height: 200px;
+}
