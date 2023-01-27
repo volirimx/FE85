@@ -1,0 +1,10 @@
+.container {
+  height: 40px;
+  padding: 10px;
+  margin: 0 150px;
+  border-top: 1px solid rgb(206, 205, 205);
+  color: rgb(206, 205, 205);
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+}/*# sourceMappingURL=Footer.module.css.map */

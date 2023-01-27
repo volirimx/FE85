@@ -1,0 +1,20 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+  border: 1px solid $color-gray;
+  max-width: 400px;
+  margin: 30px auto 0;
+  padding: 25px;
+}
+
+.buttonGoToHome {
+  text-transform: capitalize;
+  background-color: $color-dark-blue;
+  color: $color-white;
+  width: 100%;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+}
+
+

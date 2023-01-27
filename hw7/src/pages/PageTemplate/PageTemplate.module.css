@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 100px 150px;
+}
+
+.link {
+  font-size: 13px;
+  color: #000;
+  text-decoration: none;
+}
+
+.title {
+  margin: 20px 0 0;
+  font-size: 30px;
+  font-weight: 700;
+}/*# sourceMappingURL=PageTemplate.module.css.map */
