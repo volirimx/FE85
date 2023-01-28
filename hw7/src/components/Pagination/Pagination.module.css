@@ -1,4 +1,17 @@
 .container {
   display: flex;
   justify-content: space-between;
+}
+
+.paginationButton {
+  width: 100px;
+  height: 40px;
+  text-transform: capitalize;
+  color: #fff;
+  background-color: rgb(5, 8, 158);
+  border: none;
+}
+.paginationButton:disabled {
+  background-color: rgb(206, 205, 205);
+  color: #000;
 }/*# sourceMappingURL=Pagination.module.css.map */
