@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './SelectedPost.module.scss'
 import { IPostsProps } from '../../types';
 import PageTemplate from '../PageTemplate/PageTemplate';
@@ -11,12 +11,36 @@ interface ICurrPost {
 }
 
 const SelectedPost = ({posts}: IPostsProps) => {
-
-  const [post, setPost] = useState<ICurrPost>({
-    prev: 0,
-    curr: 1,
-    next: 2,
+  const [disabled, setDisabled] = useState({
+    prev: false,
+    next: false
   })
+  const [post, setPost] = useState<ICurrPost>({
+    prev: -1,
+    curr: 0,
+    next: 1,
+  })
+
+  useEffect(() => {
+    if(post.prev <= 0) {
+      setDisabled({
+        prev: true,
+        next: false
+      })
+    }
+    else if (post.next === posts.length) {
+      setDisabled({
+        prev: false,
+        next: true
+      })
+    }
+    else {
+      setDisabled({
+        prev: false,
+        next: false
+      })
+    }
+  }, [post])
 
   const getCurrentPost = () => {
     return post.curr
@@ -30,7 +54,7 @@ const SelectedPost = ({posts}: IPostsProps) => {
     return post.next
   }
 
-  if (!!getCurrentPost()) {
+  if (getCurrentPost()>=0) {
     const index = getCurrentPost()
     return (
       <>
@@ -41,7 +65,7 @@ const SelectedPost = ({posts}: IPostsProps) => {
             </div>
             <div className={styles.text}>{posts[index].text}</div>
           </div>
-          <Pagination
+          <Pagination buttonPrevDisabled={disabled.prev} buttonNextDisabled={disabled.next}
           handleClickPrev={() => setPost({
             prev: getPreviousPost() - 1,
             curr: getPreviousPost(),

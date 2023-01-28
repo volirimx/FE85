@@ -129,10 +129,11 @@ function App() {
   return (
     <div className='wrapper'>
       <Header/>
-      <SignIn/>
+      <SelectedPost posts={сards.posts} />
       {/* <Success />
       <Blog posts={сards.posts} />
-      <SelectedPost posts={сards.posts}/> */}
+      <SignIn />
+      */}
       <Footer/>
     </div>
   );

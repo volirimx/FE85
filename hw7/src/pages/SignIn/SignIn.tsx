@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from './SignIn.module.scss'
 import PageTemplate from '../PageTemplate/PageTemplate';
 
@@ -8,6 +8,8 @@ interface IForm {
 }
 
 const SignIn = () => {
+  const refLogin = useRef<HTMLInputElement>(null)
+
   const [form, setForm] = useState<IForm>({
     email: '',
     password: ''
@@ -26,14 +28,19 @@ const SignIn = () => {
     event.preventDefault()
   }
 
+  useEffect(() => {
+    refLogin.current?.focus();
+  })
+
+
   return (
     <PageTemplate linkName='Back to home' title='Sign in'>
       <div className={styles.container}>
-        <form className={styles.form}>
+        <form className={styles.form} >
           <div className={styles.label}>
             email
           </div>
-          <input className={styles.input} type='email' name='email' onChange={handleChangeInputValue} />
+          <input ref={refLogin} onFocus={() => { }} className={styles.input} type='email' name='email' onChange={handleChangeInputValue} />
           <div className={styles.label}>
             password
           </div>
@@ -43,6 +50,6 @@ const SignIn = () => {
       </div>
     </PageTemplate>
   )
-}
+  }
 
-export default SignIn;
+  export default SignIn;
