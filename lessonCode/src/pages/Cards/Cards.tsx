@@ -1,10 +1,11 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import PageTemplate from "../PageTemplate/PageTemplate";
 import styles from "./Cards.module.css";
 import axios from "axios";
 import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import Pagination from "../../components/Pagination/Pagination";
 import { turnNumberIntoArray } from "../../utils";
+import { ThemeContext } from "../../context/theme";
 
 interface ICharacter {
   created: string;
@@ -49,8 +50,6 @@ const Cards = () => {
         console.log("err");
         return;
       }
-      console.log(response);
-
       setCharactersInfo({
         count: response.data.info.count,
         pages: response.data.info.pages,
@@ -72,6 +71,14 @@ const Cards = () => {
       setCharacters(response.data.results);
     })();
   }, [currentPage]);
+
+  useEffect(() => {
+    (async () => {
+      const response = await axios.get(
+        "https://rickandmortyapi.com/api/character/?page=2"
+      );
+    })();
+  }, []);
 
   const pagesArray = useMemo(
     () => turnNumberIntoArray(charactersInfo?.pages),
