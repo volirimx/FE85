@@ -1,0 +1,67 @@
+.container {
+  background-color: #f0f0f0;
+  padding: 25px 25px 0;
+  width: 600px;
+}
+
+.content {
+  display: flex;
+}
+
+.image {
+  width: 350px;
+}
+
+.date {
+  font-weight: 600;
+  color: rgb(112, 112, 112);
+  padding: 0;
+  line-height: 0;
+}
+
+.text {
+  padding: 10px;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.author {
+  border-top: 1px solid rgb(100, 99, 99);
+  padding-top: 30px;
+  margin-top: 30px;
+  color: rgb(113, 113, 114);
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(100, 99, 99);
+  padding-bottom: 30px;
+  color: rgb(113, 113, 114);
+}
+
+button {
+  border: none;
+  width: 25px;
+  min-height: 25px;
+  margin: 5px;
+}
+
+.btnLike {
+  background-image: url('../../image/like.png');
+}
+
+.btnDisLike {
+  background-image: url('../../image/dislike.png');
+}
+
+.bookmark {
+  background-image: url('../../image/bookmark.png');
+}
+
+.more {
+  background-image: url('../../image/more.png');
+}
