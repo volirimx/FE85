@@ -96,10 +96,10 @@ const films = [
 
 /* 1. Собрать в массив все жанры фильмов (без повторения) */
 const filmGenre = function getGenre(array) {
-   const arrFilmGenre = array.map(item => item.genre).join(",").split(",");
-   return arrFilmGenre.filter((item, index) => arrFilmGenre.indexOf(item) === index);
+   const arrFilmGenre = array.map(item => item.genre).join(",").split(",");//константа arrFilmGenre содержит новый массив значение которого содержит обьект. его жанр-преобразую в массив  разделителем-потом преобразую в массив со разделителем
+   return arrFilmGenre.filter((item, index) => arrFilmGenre.indexOf(item) === index); // возвр. знач отфильтрованного массива(содержащего два значения) удолетворяющий услов.индекс искомого элемента в массиве при первом совпадении =индексу(genre)
 }
-console.log(filmGenre(films))
+console.log(filmGenre(films)) //вывожу в консоль массив films 
 
 /* 2. Собрать в массив всех актеров всех фильмов (без
    повторения) */
@@ -109,16 +109,31 @@ const allActors = function getActors(array) {
 }
 console.log(allActors(films));
 
+/* метод map в параметре получает функцию которая выполнит для каждого элемента массива 
+и то что вернет функция через return будет новым значение элемента,
+а вернет значение-новый массив в который войдут элементы, для которых вернет true,
+метод filter  отфиьтровывает элементы массива которые удолетворяют условиям элемента
+метод(массива) split - преобразует строку в массив с заданным разделителем,
+ Метод (массива) join(",") - преобразовывает массив в строку с заданным разделителем */
+
 /* 3. Отсортировать фильмы по рейтингу по убыванию */
 const ratingDown = (array) => array.sort((a, b) => b.imdbRating - a.imdbRating)
 console.log(ratingDown(films));
 
+/* Имя массива ratingDown =(массив не назначенный) =>беру не сортированный массив. применяю функцию сорт
+передаю функцию сортировки (b-a)-по убыванию (a-b) -по возрастанию
+вывожу в консоль массив  films у которого произошла сортировка значений*/
+
+/* метод sort проходит по массиву и сравнивает элементы и переупорядочивает эл. */
+
 /* Создать новый массив, где объекты фильмов будут состоять
 из следующих полей:
 id, title, released, plot */
+
+//  константа принимающая массив=> возвр. новый массив обьекты которого заполняются для хранения различных коллекций с ключами
 const newArr = (array) => array.map(object => ({
-   id: object.id,
-   title: object.title,
+   id: object.id, //пар ключ-значение. id кажого обьекта
+   title: object.title, //title кажого обьекта
    released: object.released,
    plot: object.plot
 }));
@@ -131,6 +146,11 @@ console.log(newArr(films));
 const exitNumber = (arr, number) => arr.filter(item => item.year === number);
 console.log(exitNumber(films, 1977));
 
+/* Создаю константу которая принимает два параметра exitNumber(массив и число), обращаюсь к массиву  и вызываю метод filter(на каждой итерации
+  получаю обьект item => {возвращаю true||false} условие если (item.year===числу) тогда оставляем в массиве)
+  вывожу сообщение в консоль(массив, число-у которого удолеттворяет условию)
+ */
+
 /* 6. Создать функцию, которая бы принимала массив фильмов и
 строку.А результатом этой функции должен быть новый
 отфильтрованный массив, с фильмами, где строка входит в
@@ -138,14 +158,21 @@ console.log(exitNumber(films, 1977));
 const title = (arr, string) => arr.filter(item => item.title.toLowerCase().includes(string.toLowerCase()));
 console.log(title(films, 'Half-Blood'));
 
+/* создаю константу которая принимает два параметра (массив и строку)=>для массива применяю метод фильтр filter-(includes ищет искомый элемент в массиве films ->'Half-Blood' ) 
+затем вывожу  в консоль*/
+
 /* 7. Создать функцию, которая бы принимала массив фильмов и
 строку. А результатом этой функции должен быть
 отфильтрованный массив, с фильмами где строка входит в
 название фильма или в его сюжет. */
+//
 const titleFilm = (arr, string) => {
    return arr.filter(item => item.title.toLowerCase().includes(string.toLowerCase()) || item.plot.toLowerCase().includes(string.toLowerCase()));
+   /* возвращаю отфильтрованный массив(значение=>ищет у обьекта значение title "все буквы которого с маленькой" [includes]- определяет содержит ли массив искомый элемент {evil},
+   или тоже самое в значении plot) */
 }
-console.log(titleFilm(films, 'evil'));
+// создаю константу titleFilm принимающая два параметра,
+console.log(titleFilm(films, 'evil')); //вывожу сообщение в консоль- массив titleFilm который принял в себя массив films и нашел введенное значение
 
 /* 8. Создать функцию, которая бы принимала 3 параметра:
 1)массив фильмов , 2) строка(название поля, например 'title') и
@@ -155,8 +182,14 @@ console.log(titleFilm(films, 'evil'));
 передаем (films, 'title', 'Black Widow') и на выходе получаем
 фильм с id=1 если передаем (films, 'year', 2011) , то получаем
 фильм с id=2 */
-const movieSearch = (arr, string, str) => {
-   return arr.filter(item => Object.keys(item).find(item => item === string) && Object.values(item).find(item => item === str));
+const movieSearch = (arr, fieldName, fieldValue) => {
+   //возвращает новый масив элелментов которые удолетваряют условию стрелочной функции переданной в функцию filter обьектов масивов
+   return arr.filter((item) => {
+      let itemFieldName = Object.keys(item).find(item => item === fieldName); // если есть в объекте поле с имененм fieldName, то возвращает его имя иначе undefined
+      let itemValue = item[itemFieldName];// возвращает значение поля с именем fieldName
+      return itemValue === fieldValue; // сравнивает введенное значение со значением по имени введенного поля
+   });
 }
 console.log(movieSearch(films, 'title', 'Black Widow'));
+
 
