@@ -191,5 +191,3 @@ const movieSearch = (arr, fieldName, fieldValue) => {
    });
 }
 console.log(movieSearch(films, 'title', 'Black Widow'));
-
-
