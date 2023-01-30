@@ -1,0 +1,27 @@
+.content {
+    height: 900px;
+    background-color: rgb(240, 239, 239);
+}
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+.date {
+    margin-top: 20px;
+    color: rgb(158, 157, 157);
+}
+.image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.text {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 18px;
+}
+.buttonFavorite {
+    font-weight: bolder;
+    background-color: grey;
+}
