@@ -1,15 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import styles from './SignIn.module.scss'
 import PageTemplate from '../PageTemplate/PageTemplate';
-import FormSignIn from '../../components/FormSignIn/FormSignIn'
+import FormRegistration from '../../components/FormRegistration/FormRegistration'
 
 
-const SignIn = () => {
+const Registration = () => {
   return (
     <PageTemplate linkName='Back to home' title='Sign in'>
-      <FormSignIn />
+      <FormRegistration />
     </PageTemplate>
   )
-  }
+}
 
-  export default SignIn;
+export default Registration;

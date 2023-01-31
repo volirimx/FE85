@@ -4,6 +4,7 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Success from '../src/pages/Success/Success'
 import SignIn from '../src/pages/SignIn/SignIn'
+import Registration from '../src/pages/Registration/Registration'
 import SelectedPost from '../src/pages/SelectedPost/SelectedPost'
 import Blog from '../src/pages/Blog/Blog'
 import { IPostsProps } from './types/index'
@@ -129,10 +130,10 @@ function App() {
   return (
     <div className='wrapper'>
       <Header/>
-      <SelectedPost posts={сards.posts} />
+      <Registration />
       {/* <Success />
       <Blog posts={сards.posts} />
-      <SignIn />
+      <SelectedPost posts={сards.posts} />
       */}
       <Footer/>
     </div>

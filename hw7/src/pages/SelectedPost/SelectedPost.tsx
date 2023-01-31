@@ -22,7 +22,7 @@ const SelectedPost = ({posts}: IPostsProps) => {
   })
 
   useEffect(() => {
-    if(post.prev <= 0) {
+    if(post.prev <= -1) {
       setDisabled({
         prev: true,
         next: false
@@ -42,20 +42,8 @@ const SelectedPost = ({posts}: IPostsProps) => {
     }
   }, [post])
 
-  const getCurrentPost = () => {
-    return post.curr
-  }
-
-  const getPreviousPost = () => {
-    return post.prev
-  }
-
-  const getNextPost = () => {
-    return post.next
-  }
-
-  if (getCurrentPost()>=0) {
-    const index = getCurrentPost()
+  if (post.curr >= 0) {
+    const index = post.curr
     return (
       <>
         {(index !== -1 && index < posts.length) ? <PageTemplate linkName='Kroshki' title={posts[index].title}>
@@ -67,14 +55,14 @@ const SelectedPost = ({posts}: IPostsProps) => {
           </div>
           <Pagination buttonPrevDisabled={disabled.prev} buttonNextDisabled={disabled.next}
           handleClickPrev={() => setPost({
-            prev: getPreviousPost() - 1,
-            curr: getPreviousPost(),
-            next: getCurrentPost(),
+            prev: post.prev - 1,
+            curr: post.prev,
+            next: post.prev + 1,
           })}
           handleClickNext={() => setPost({
-            prev: getNextPost(),
-            curr: getNextPost(),
-            next: getNextPost() + 1,
+            prev: post.next - 1,
+            curr: post.next,
+            next: post.next + 1,
           })} />
         </PageTemplate> : null}
       </>
