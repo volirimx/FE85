@@ -26,7 +26,6 @@ interface IAllPosts {
 const AllPosts = ({ posts }: IAllPosts) => {
     return (
         <div className={styles.container}>
-            <Menu />
             <div className={styles.posts}>
                 <div>
                     {posts.map((item) => <SmallerPost 
@@ -52,7 +51,6 @@ const AllPosts = ({ posts }: IAllPosts) => {
                 />)}
                 </div>
             </div>
-            <Copyright />
         </div>
     )
 }

@@ -23,7 +23,6 @@ interface ISelectedPost {
 const SelectedPost = ({ posts }: ISelectedPost) => {
     return (
         <div className={styles.container}>
-            <Menu />
             <Post 
                 image={posts[0].image}
                 text={posts[0].text}
@@ -34,7 +33,6 @@ const SelectedPost = ({ posts }: ISelectedPost) => {
                 author={posts[0].author}
                 key={posts[0].id}
             />
-            <Copyright />
         </div>
     )
 }

@@ -12,6 +12,7 @@ import Login from './pages/Login/Login';
 import Signin from './pages/Signin/Signin';
 import AllPosts from './pages/AllPosts/AllPosts';
 import SelectedPost from './pages/SelectedPost/SelectedPost';
+import Copyright from './components/Copyright/Copyright';
 function App() {
 
 
@@ -51,11 +52,13 @@ function App() {
 
   return (
     <div className="App">
-      {/* <AllPosts posts={posts} /> */}
+      <Menu />
+      <AllPosts posts={posts} />
       {/* <SelectedPost posts={posts} /> */}
       {/* <Login /> */}
       {/* <Signin /> */}
       {/* <Success /> */}
+      <Copyright />
     </div>
   );
 }

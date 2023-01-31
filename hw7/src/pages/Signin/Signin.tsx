@@ -24,9 +24,7 @@ const Signin = () => {
 
     return (
         <div className={styles.container}>
-            <Menu />
             <SigninForm data={data} changeData={changeData} />
-            <Copyright />
         </div>
     )
 }

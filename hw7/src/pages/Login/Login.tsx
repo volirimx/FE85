@@ -22,9 +22,7 @@ const Login = () => {
 
     return (
         <div className={styles.container}>
-            <Menu />
             <LoginForm data={data} changeData={changeData} />
-            <Copyright />
         </div>
     )
 }

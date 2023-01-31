@@ -8,9 +8,7 @@ const Success = () => {
     const result = 'Success'
     return (
         <div className={styles.container}>
-            <Menu />
             <ValidationSuccess result={result} />
-            <Copyright />
         </div>
     )
 }
