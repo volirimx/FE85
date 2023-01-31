@@ -1,5 +1,6 @@
 
 import styles from './Post.module.css'
+import { useThemeContext } from '../../context/theme';
 
 
 interface IPost {
@@ -14,8 +15,10 @@ interface IPost {
 
 
 const Post = ({ image, text, date, lesson_num, title, description, author}: IPost) => {
+    const theme = useThemeContext()
+
     return (
-        <div className={styles.container}>
+        <div className={theme.theme === 'light' ? styles.container : styles.containerDark}>
             <img src={image} alt="" className={styles.image} />
             <div className={styles.textcontent}>
                 <h1>{title}</h1>

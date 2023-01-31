@@ -2,6 +2,7 @@
 
 import React from "react"
 import styles from './SigninForm.module.css'
+import { useThemeContext } from "../../context/theme";
 
 interface IData {
     login: string;
@@ -25,9 +26,10 @@ const SigninForm = ( { data, changeData }: ISigninForm ) => {
         }
         alert ('Success!!!')
     }
+    const theme = useThemeContext()
 
     return (
-        <form className={styles.container}>
+        <form className={theme.theme === 'light' ? styles.container : styles.containerDark}>
             <div>Login:  <input type="text" onChange={(event) => changeData({...data, login: event.target.value})} /></div>
             <div>Password:  <input type="password" onChange={(event) => changeData({...data, password: event.target.value})} /></div> 
             <div>Repeat Password:  <input type="password" onChange={(event) => changeData({...data, repeatedPass: event.target.value})} /></div>

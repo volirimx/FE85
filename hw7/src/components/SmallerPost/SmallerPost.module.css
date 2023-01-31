@@ -6,6 +6,16 @@
     justify-content: space-between;
     background-color: lightblue;
 }
+
+.containerDark {
+    display: flex;
+    max-width: 500px;
+    height: 400px;
+    margin: 20px 0;
+    justify-content: space-between;
+    background-color: rgb(85, 81, 81);
+    color: white;
+}
 .textcontent{
     display: flex;
     flex-direction: column;
@@ -17,7 +27,7 @@
     display: flex;
     justify-content: center;
     width: 250px;
-    color: rgb(121, 70, 70);
+    color: inherit;
 }
 
 .image {

@@ -7,7 +7,7 @@ import SmallestPost from "../../components/SmallestPost/SmallestPost"
 import styles from './AllPosts.module.css'
 
 
-interface IPost {
+export interface IPost {
     id: number
     image: string
     date: string

@@ -13,3 +13,20 @@
     font-size: 30px;
     height: 80px;
 }
+
+.containerDark {
+    height: 300px;
+    width: 300px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+.containerDark div {
+    font-size: 30px;
+}
+
+.containerDark button {
+    font-size: 30px;
+    height: 80px;
+}

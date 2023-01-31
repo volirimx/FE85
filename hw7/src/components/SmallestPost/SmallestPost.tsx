@@ -1,6 +1,7 @@
 import React from "react";
 import { deflate } from "zlib";
 import styles from './SmallestPost.module.css'
+import { useThemeContext } from "../../context/theme";
 
 interface IPost {
     image: string;
@@ -17,8 +18,9 @@ interface IPost {
 
 
 const SmallestPost = ({ image, text, date, lesson_num, title, description, author}: IPost) => {
+    const theme = useThemeContext()
     return (
-        <div className={styles.container}>
+        <div className={theme.theme === 'light' ? styles.container : styles.containerDark}>
             <img src={image} alt="" className={styles.image}/>
             <div className={styles.textcontent}>
                 <h1>{title}</h1>

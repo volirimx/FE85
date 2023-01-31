@@ -7,7 +7,6 @@ import styles from './PageTemplate.module.css'
 const PageTemplate = ({ children }: {children: React.ReactNode}) => {
     return (
         <div className={styles.container}>
-            <Menu />
             <Copyright />
         </div>
     )

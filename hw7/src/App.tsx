@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Post from './components/Post/Post';
@@ -13,6 +13,8 @@ import Signin from './pages/Signin/Signin';
 import AllPosts from './pages/AllPosts/AllPosts';
 import SelectedPost from './pages/SelectedPost/SelectedPost';
 import Copyright from './components/Copyright/Copyright';
+import { ThemeContext, useInitThemeContext } from './context/theme';
+import Search from './pages/Search/Search';
 function App() {
 
 
@@ -49,17 +51,26 @@ function App() {
     }
 ]
 
+  const [searchResult, setSearchResult] = useState('')
+
+  const changeSearch = (input: string) => setSearchResult(input)
+
+  const themeContextValues = useInitThemeContext();
+
 
   return (
-    <div className="App">
-      <Menu />
+    <ThemeContext.Provider value={themeContextValues}>
+    <div className={themeContextValues.theme === 'light' ? 'container' : 'containerDark'}>
+      <Menu changeSearch={changeSearch} />
       <AllPosts posts={posts} />
       {/* <SelectedPost posts={posts} /> */}
       {/* <Login /> */}
       {/* <Signin /> */}
       {/* <Success /> */}
+      {/* <Search search={searchResult} posts={posts} /> */}
       <Copyright />
     </div>
+    </ThemeContext.Provider>
   );
 }
 
