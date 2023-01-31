@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import styles from "./Styles.module.css";
@@ -12,6 +12,7 @@ import Login from "./pages/Login/Login";
 import Cards from "./pages/Cards/Cards";
 
 import axios from "axios";
+import { ThemeContext, useInitThemeContext } from "./context/theme";
 
 interface ICharacter {
   created: string;
@@ -35,36 +36,18 @@ interface ICharacter {
 }
 
 function App() {
-  // const changeNum = () => {
-  //   setNum((num) => {
-  //     console.log(num);
-
-  //     return num + 1;
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   setNum(num + 1);
-  //   setNum(num + 1);
-  //   setNum(num + 1);
-  //   setNum(num + 1);
-  // }, []);
-  // console.log(num);
-
-  // useEffect(() => {
-  //   setNum((num) => num + 1);
-  //   setNum((num) => num + 1);
-  //   setNum((num) => num + 1);
-  //   setNum((num) => num + 1);
-  // }, []);
+  const themeContextValues = useInitThemeContext();
 
   return (
-    <div className="App">
-      <Header />
-      {/* <Login /> */}
-      <Cards />
-      <Footer />
-    </div>
+    <ThemeContext.Provider value={themeContextValues}>
+      <div className={"light" ? "AppLight" : "App"}>
+        <Header />
+        {/* <Login /> */}
+        <button>Change theme</button>
+        <Cards />
+        <Footer />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 

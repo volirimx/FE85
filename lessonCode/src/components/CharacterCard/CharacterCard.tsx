@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 interface ICard {
   img: string;
@@ -8,8 +8,15 @@ interface ICard {
 }
 
 const CharacterCard = (props: ICard) => {
+  // const theme = useContext(SimpleThemeContext);
+
   return (
-    <div style={{ color: "white" }}>
+    <div
+      style={{
+        color: "white",
+        backgroundColor: "light" ? "red" : "grey",
+      }}
+    >
       <img src={props.img} />
       <div>
         <p>{props.name}</p>
