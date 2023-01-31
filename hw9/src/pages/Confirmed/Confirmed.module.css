@@ -1,0 +1,48 @@
+.confirmed {
+    color: #4b4b4b;
+    border: 2px solid #2000E7;
+    box-shadow: 11px 21px 51px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 20px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.confirmed.confirmedDark {
+    border-color: white;
+}
+
+.confirmed.confirmedDark * {
+    color: white;
+}
+
+.confirmed.confirmedDark > .button {
+    background-color: #166500;
+}
+
+.text {
+    color: #2000E7;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.text span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #4b4b4b;
+}
+
+.button {
+    width: 100%;
+    padding: 15px;
+    background-color: #15a600;
+    color: white;
+    border-radius: 6px;
+    transition: all .1s;
+}
+
+.button:hover {
+    background-color: #37ce0c;
+}
