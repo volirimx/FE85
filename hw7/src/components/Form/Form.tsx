@@ -3,13 +3,18 @@ import styles from "./Form.module.css";
 
 
 const Form = () => {
+    
+    function getInput(event: any) {
+        console.log(event.target.value);
+    }
+
     return (
         <div className={styles.container}>
             <form className={styles.form}>
                 <p className={styles.text}>Email</p>
-                <input className={styles.input} type="email" placeholder="Your email"/>
+                <input onInput={getInput} className={styles.input} type="email" placeholder="Your email"/>
                 <p className={styles.text}>Password</p>
-                <input className={styles.input} type="password" placeholder="Your password"/>
+                <input onInput={getInput} className={styles.input} type="password" placeholder="Your password"/>
                 <button className={styles.buttonForgot}>Forgot password</button>
                 <button className={styles.buttonSign}>Sign In</button>
             </form>

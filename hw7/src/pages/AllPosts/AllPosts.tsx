@@ -58,6 +58,7 @@ const AllPosts = () => {
                         index={index}
                         activeTab={activeTab}
                         setActiveTab={setActiveTab}
+                        key={tab}
                         />))}
                     </div>
                 </div>
@@ -68,6 +69,7 @@ const AllPosts = () => {
                                 title={post.title}
                                 data={post.date}
                                 image={post.image}
+                                key={post.id}
                             />)}
                         </div>
                         <div>
@@ -75,6 +77,7 @@ const AllPosts = () => {
                                 title={post.title}
                                 data={post.date}
                                 image={post.image}
+                                key={post.id}
                             />)}
                         </div>
                     </div>
@@ -84,6 +87,7 @@ const AllPosts = () => {
                                 title={post.title}
                                 data={post.date}
                                 image={post.image}
+                                key={post.id}
                             />)}
                         </div>
                         <div>
@@ -91,6 +95,7 @@ const AllPosts = () => {
                                 title={post.title}
                                 data={post.date}
                                 image={post.image}
+                                key={post.id}
                             />)}
                         </div>
                     </div>
