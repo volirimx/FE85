@@ -12,3 +12,11 @@
 .subContainer {
     display: flex;
 }
+
+.button {
+  border: none;
+    border-left: 1px solid $color-white;
+    border-right: 1px solid $color-white;
+    background-color: transparent;
+    color: $color-white;
+}

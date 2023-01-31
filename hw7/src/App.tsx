@@ -130,7 +130,6 @@ const сards: IPostsProps = {
 
 function App() {
   const themeContextValues = useInitThemeContext()
-
   return (
     <ThemeContext.Provider value={themeContextValues}>
       <div className={themeContextValues.theme == 'light' ? "wrapperLight" : "wrapper"}>
