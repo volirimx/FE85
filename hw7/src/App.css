@@ -47,6 +47,11 @@ body, html, #root {
   flex-direction: column;
   min-height: 100%;
   overflow: hidden;
+  background-color: rgb(72, 72, 72);
+}
+
+.wrapperLight {
+  background-color: rgb(245 244 244);
 }
 
 button, a {

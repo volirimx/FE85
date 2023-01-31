@@ -5,7 +5,6 @@ interface IForm {
   email: string;
   password: string;
   repeatedPassword: string;
-  validRepeatedPassword: boolean;
 }
 
 const FormRegistration = () => {
@@ -13,12 +12,13 @@ const FormRegistration = () => {
     email: '',
     password: '',
     repeatedPassword: '',
-    validRepeatedPassword: false
   })
 
+  const [validRepeatedPassword, setValidRepeatedPassword] = useState(false)
+
   useEffect(() => {
-    if (form.password === form.repeatedPassword) form.validRepeatedPassword = true
-    else form.validRepeatedPassword = false
+    if (form.password === form.repeatedPassword) setValidRepeatedPassword(true)
+    else setValidRepeatedPassword(false)
   }, [form.repeatedPassword, form.password])
 
   const handleChangeInputValue = (event: any) => {
@@ -31,7 +31,7 @@ const FormRegistration = () => {
   }
 
   const handleSubmitButtonClick = (event: any) => {
-    event.preventDefault()
+    if (!validRepeatedPassword) event.preventDefault()
   }
 
   return (
@@ -48,7 +48,7 @@ const FormRegistration = () => {
         <div className={styles.label}>
           repeated password
         </div>
-        <input className={styles.input + ' ' + (form.validRepeatedPassword ? styles.valid : styles.inValid)} type='password' name='repeatedPassword' onChange={handleChangeInputValue} />
+        <input className={styles.input + ' ' + (validRepeatedPassword ? styles.valid : styles.inValid)} type='password' name='repeatedPassword' onChange={handleChangeInputValue} />
         <button type='submit' className={styles.buttonRegistration} onClick={handleSubmitButtonClick}>sign in</button>
       </form>
     </div>

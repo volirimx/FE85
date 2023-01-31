@@ -13,3 +13,10 @@ export interface IPostsProps {
   posts: IPost[];
 }
 
+export interface IPostProps {
+  image: string;
+  date: string;
+  title: string;
+  description?: string;
+}
+

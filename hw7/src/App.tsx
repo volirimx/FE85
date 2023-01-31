@@ -5,10 +5,12 @@ import Footer from './components/Footer/Footer'
 import Success from '../src/pages/Success/Success'
 import SignIn from '../src/pages/SignIn/SignIn'
 import Registration from '../src/pages/Registration/Registration'
+import SearchPost from '../src/pages/SearchPost/SearchPost'
 import SelectedPost from '../src/pages/SelectedPost/SelectedPost'
 import Blog from '../src/pages/Blog/Blog'
 import { IPostsProps } from './types/index'
-import './App.css';
+import { ThemeContext, useInitThemeContext } from "./context/theme"
+import './App.css'
 
 const сards: IPostsProps = {
   posts: [
@@ -18,7 +20,7 @@ const сards: IPostsProps = {
       text: "0 Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dignissimos, quo voluptatibus doloremque perspiciatis quas saepe alias? Esse voluptate quasi sapiente architecto consectetur, laborum nesciunt ipsum nemo iusto voluptates illum?",
       date: "2021-10-06",
       lesson_num: 123,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
+      title: "first post",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
       author: '7'
     },
@@ -28,7 +30,7 @@ const сards: IPostsProps = {
       text: "1",
       date: "2021-10-06",
       lesson_num: 456,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
+      title: "second post",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
       author: '8'
     },
@@ -38,7 +40,7 @@ const сards: IPostsProps = {
       text: "2",
       date: "2021-10-06",
       lesson_num: 789,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
+      title: "third post",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
       author: '9'
     },
@@ -48,7 +50,7 @@ const сards: IPostsProps = {
       text: "3",
       date: "2021-10-06",
       lesson_num: 123,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
+      title: "fourth post",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
       author: '7'
     },
@@ -58,7 +60,7 @@ const сards: IPostsProps = {
       text: "4",
       date: "2021-10-06",
       lesson_num: 456,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
+      title: "fifth.post",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
       author: '8'
     },
@@ -68,7 +70,7 @@ const сards: IPostsProps = {
       text: "5",
       date: "2021-10-06",
       lesson_num: 789,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
+      title: "sixth post",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
       author: '9'
     },
@@ -78,7 +80,7 @@ const сards: IPostsProps = {
       text: "6",
       date: "2021-10-06",
       lesson_num: 123,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
+      title: "seventh post",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
       author: '7'
     },
@@ -88,7 +90,7 @@ const сards: IPostsProps = {
       text: "7",
       date: "2021-10-06",
       lesson_num: 456,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
+      title: "eightth post",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
       author: '8'
     },
@@ -98,7 +100,7 @@ const сards: IPostsProps = {
       text: "8",
       date: "2021-10-06",
       lesson_num: 789,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
+      title: "nineth post",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
       author: '9'
     },
@@ -108,7 +110,7 @@ const сards: IPostsProps = {
       text: "9",
       date: "2021-10-06",
       lesson_num: 456,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
+      title: "tenth post",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
       author: '8'
     },
@@ -118,7 +120,7 @@ const сards: IPostsProps = {
       text: "10",
       date: "2021-10-06",
       lesson_num: 789,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
+      title: "eleventh post",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
       author: '9'
     },
@@ -127,16 +129,22 @@ const сards: IPostsProps = {
 
 
 function App() {
+  const themeContextValues = useInitThemeContext()
+
   return (
-    <div className='wrapper'>
-      <Header/>
-      <Registration />
-      {/* <Success />
+    <ThemeContext.Provider value={themeContextValues}>
+      <div className={themeContextValues.theme == 'light' ? "wrapperLight" : "wrapper"}>
+        <Header />
+        <SearchPost posts={сards.posts} />
+        {/* <Success />
       <Blog posts={сards.posts} />
       <SelectedPost posts={сards.posts} />
+      <Registration />
+      <SignIn />
       */}
-      <Footer/>
-    </div>
+        <Footer />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
