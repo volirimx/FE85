@@ -15,6 +15,8 @@ import SelectedPost from './pages/SelectedPost/SelectedPost';
 import Copyright from './components/Copyright/Copyright';
 import { ThemeContext, useInitThemeContext } from './context/theme';
 import Search from './pages/Search/Search';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import AuthRoot from './components/routes/AuthRoot/AuthRoot';
 function App() {
 
 
@@ -59,18 +61,34 @@ function App() {
 
 
   return (
-    <ThemeContext.Provider value={themeContextValues}>
-    <div className={themeContextValues.theme === 'light' ? 'container' : 'containerDark'}>
-      <Menu changeSearch={changeSearch} />
-      <AllPosts posts={posts} />
-      {/* <SelectedPost posts={posts} /> */}
-      {/* <Login /> */}
-      {/* <Signin /> */}
-      {/* <Success /> */}
-      {/* <Search search={searchResult} posts={posts} /> */}
-      <Copyright />
-    </div>
-    </ThemeContext.Provider>
+    <BrowserRouter>
+      <ThemeContext.Provider value={themeContextValues}>
+      <div className={themeContextValues.theme === 'light' ? 'container' : 'containerDark'}>
+        <Menu changeSearch={changeSearch} />
+        <Routes>
+        <Route path='/Posts' >
+          <Route index element={<AllPosts posts={posts} />}></Route>
+          <Route element={
+            <AuthRoot route='/posts' dependency={true}>
+              <SelectedPost posts={posts} />
+          </AuthRoot>
+          } path=':id' /> 
+        </Route>
+        <Route element={<Login  />} path='/Login' /> 
+        <Route element={<Signin  />} path='/Signin' /> 
+        <Route element={<Success />} path='/Success' /> 
+        <Route element={<Search search={searchResult} posts={posts} />} path='/Search' /> 
+      </Routes>
+        {/* <AllPosts posts={posts} /> */}
+        {/* <SelectedPost posts={posts} /> */}
+        {/* <Login /> */}
+        {/* <Signin /> */}
+        {/* <Success /> */}
+        {/* <Search search={searchResult} posts={posts} /> */}
+        <Copyright />
+      </div>
+      </ThemeContext.Provider>
+    </BrowserRouter>
   );
 }
 

@@ -36,6 +36,7 @@ const AllPosts = ({ posts }: IAllPosts) => {
                         title={item.title}
                         description={item.description}
                         author={item.author}
+                        id={item.id}
                         key={item.id}
                 />)}</div>
                 <div>
@@ -47,6 +48,7 @@ const AllPosts = ({ posts }: IAllPosts) => {
                         title={item.title}
                         description={item.description}
                         author={item.author}
+                        id={item.id}
                         key={item.id}
                 />)}
                 </div>

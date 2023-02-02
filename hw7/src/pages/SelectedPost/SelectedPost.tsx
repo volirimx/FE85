@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import Copyright from "../../components/Copyright/Copyright";
 import Menu from "../../components/Menu/Menu";
 import Post from "../../components/Post/Post";
@@ -21,19 +22,28 @@ interface ISelectedPost {
 
 
 const SelectedPost = ({ posts }: ISelectedPost) => {
+    const { id } = useParams()
+    const newItem = posts.find((item) => item.id === Number(id))
+    if(newItem) {
     return (
+        
         <div className={styles.container}>
+            
             <Post 
-                image={posts[0].image}
-                text={posts[0].text}
-                date={posts[0].date}
-                lesson_num={posts[0].lesson_num}
-                title={posts[0].title}
-                description={posts[0].description}
-                author={posts[0].author}
-                key={posts[0].id}
+                image={newItem.image}
+                text={newItem.text}
+                date={newItem.date}
+                lesson_num={newItem.lesson_num}
+                title={newItem.title}
+                description={newItem.description}
+                author={newItem.author}
+                key={newItem.id}
             />
         </div>
+    )
+    }
+    else return (
+        <div>POST NOT FOUND</div>
     )
 }
 

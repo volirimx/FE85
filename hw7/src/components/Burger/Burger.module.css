@@ -1,0 +1,47 @@
+
+.container {
+  border: none !important;
+}
+
+.closedMenu {
+  width: 60px;
+  height: 60px;
+  background-image: url('./icons8-xbox-menu-100.png');
+  background-size: cover;
+  cursor: pointer;
+}
+
+.menuIsOpen {
+  width: 60px;
+  height: 60px;
+  background-image: url('./icons8-multiply-100.png');
+  background-size: cover;
+  cursor: pointer;
+}
+
+.listContainer {
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  width: 100px;
+}
+
+.listContainer li {
+  border: 1px solid white;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.listContainer li:hover {
+  color: brown;
+}
+
+.listContainerClosed {
+  display: none;
+}
+
+.active {
+  text-decoration: underline;
+  color: brown;
+  text-decoration-color: deeppink;
+}
