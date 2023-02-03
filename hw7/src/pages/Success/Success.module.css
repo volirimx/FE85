@@ -1,0 +1,16 @@
+.container {
+  border: 1px solid rgb(206, 205, 205);
+  max-width: 400px;
+  margin: 30px auto 0;
+  padding: 25px;
+}
+
+.buttonGoToHome {
+  text-transform: capitalize;
+  background-color: rgb(5, 8, 158);
+  color: #fff;
+  width: 100%;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+}/*# sourceMappingURL=Success.module.css.map */

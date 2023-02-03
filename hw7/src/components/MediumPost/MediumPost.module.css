@@ -1,0 +1,31 @@
+.post {
+  border-bottom: 1px solid rgb(155, 155, 155);
+}
+
+.post__date {
+  margin: 10px 0 0;
+  color: rgb(131, 130, 130);
+}
+
+.post__title {
+  margin: 10px 0;
+  color: rgb(0, 0, 0);
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 700;
+}
+
+:is(.post__title, .post__date, .post__description)::first-letter {
+  text-transform: uppercase;
+}
+
+.post__img {
+  max-height: 300px;
+}
+
+.post__img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  max-height: inherit;
+}/*# sourceMappingURL=MediumPost.module.css.map */

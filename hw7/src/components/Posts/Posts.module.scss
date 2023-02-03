@@ -1,0 +1,15 @@
+.posts {
+    background-color: rgb(241, 253, 255);
+    padding: 40px;
+    display: grid;
+    gap: 20px;
+}
+
+.largePost {
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+
+.smallPosts {
+    grid-row: 1/4;
+}

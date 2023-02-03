@@ -1,0 +1,16 @@
+.container {
+  max-width: 700px;
+  margin: 30px auto 0;
+  padding: 25px;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.text {
+  margin: 30px 60px;
+}/*# sourceMappingURL=SelectedPost.module.css.map */
