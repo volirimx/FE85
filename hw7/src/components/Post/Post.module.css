@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    height: 600px;
+    max-width: 600px;
+    background-color: lightblue;
+    margin: 20px 0;
+}
+
+.containerDark {
+    display: flex;
+    height: 600px;
+    max-width: 600px;
+    background-color: rgb(85, 81, 81);
+    margin: 20px 0;
+    color: white;
+}
+
+.textcontent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: inherit;
+}
+
+.textcontent div {
+    font-size: larger;
+    overflow: auto;
+    color: inherit;
+}
+.image {
+    max-width: 350px;
+}

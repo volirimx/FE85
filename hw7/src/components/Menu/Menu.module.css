@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(73, 73, 228);
+    justify-content: space-between;
+    color: rgb(29, 167, 185);
+}
+.containerDark {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    justify-content: space-between;
+    border-bottom: 2px solid white;
+}
+.container div {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+}
+.container input {
+    width: 60%;
+    color: inherit;
+}
+.container button {
+    background-color: inherit;
+    border: 1px solid white;
+    color: inherit;
+}
+
+.container button:hover {
+    opacity: 65%;
+}
+
+.containerDark div {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    color: white;
+}
+.containerDark input {
+    width: 60%;
+    background-color: inherit;
+    color: white;
+}
+
+.containerDark button {
+    border: 1px solid white;
+    background-color: inherit;
+    color: white;
+}
+
+.containerDark button:hover {
+    opacity: 65%;
+}

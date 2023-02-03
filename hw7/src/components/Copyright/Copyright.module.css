@@ -1,0 +1,12 @@
+.container {
+    width: 80%;
+    height: 50px;
+    border-top: 2px solid black;
+}
+
+.containerDark {
+    width: 80%;
+    height: 50px;
+    border-top: 2px solid white;
+    color: white;
+}

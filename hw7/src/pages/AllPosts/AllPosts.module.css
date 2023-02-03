@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+.posts {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}

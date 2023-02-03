@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    max-width: 260px;
+    margin: 20px 0;
+    background-color: lightblue;
+}
+.containerDark {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    max-width: 260px;
+    margin: 20px 0;
+    background-color: rgb(85, 81, 81);
+    color: white;
+}
+.textcontent{
+    display: flex;
+    flex-direction: column;
+}
+
+.textcontent div {
+    font-size: medium;
+    color: inherit;
+}
+
+.image {
+    height: 200px;
+}
