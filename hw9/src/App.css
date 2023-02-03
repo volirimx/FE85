@@ -1,0 +1,92 @@
+/*--------------обнуление----------------------------*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100%;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.App {
+  background-color: white;
+  min-height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 90px);
+}
+
+.App.Dark {
+  background-color: #001633;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+#root {
+  min-height: 100vh;
+}
+/*----------------------------------------------------*/
+
+/*-------------------scrollbar----------------------*/
+*::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #2000E7;
+}
+/*----------------------------------------------------*/
