@@ -6,6 +6,8 @@ import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import Pagination from "../../components/Pagination/Pagination";
 import { turnNumberIntoArray } from "../../utils";
 import { ThemeContext } from "../../context/theme";
+import { useAppDispatch } from "../../redux/hooks";
+import { increment } from "../../redux/slices/counterSlice";
 
 interface ICharacter {
   created: string;
@@ -39,6 +41,7 @@ const Cards = () => {
   const [characters, setCharacters] = useState<ICharacter[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [charactersInfo, setCharactersInfo] = useState<ICharactersInfo>();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     (async () => {
@@ -89,8 +92,13 @@ const Cards = () => {
     setCurrentPage(page);
   };
 
+  const handleButtonClick = () => {
+    dispatch(increment());
+  };
+
   return (
     <PageTemplate title={"Card"} linkName={"none"}>
+      <button onClick={handleButtonClick}>Change theme</button>
       <div className={styles.container}>
         {characters.map((character) => (
           <CharacterCard
