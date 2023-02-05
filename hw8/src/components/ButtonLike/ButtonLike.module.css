@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    width: 1000px;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid rgb(209, 209, 209);
+}
+.buttonLike {
+    background-color: rgb(209, 209, 209);
+    margin-left: 10px;
+    cursor: pointer;
+}
+.buttonFavorite {
+    font-weight: bolder;
+    background-color: rgb(209, 209, 209);
+    cursor: pointer;
+}
