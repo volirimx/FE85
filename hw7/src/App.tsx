@@ -2,15 +2,21 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 import Success from '../src/pages/Success/Success'
 import SignIn from '../src/pages/SignIn/SignIn'
 import Registration from '../src/pages/Registration/Registration'
 import SearchPost from '../src/pages/SearchPost/SearchPost'
 import SelectedPost from '../src/pages/SelectedPost/SelectedPost'
+import SelPost from '../src/pages/SelPost/SelPost'
 import Blog from '../src/pages/Blog/Blog'
 import { IPostsProps } from './types/index'
 import { ThemeContext, useInitThemeContext } from "./context/theme"
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import {store} from './redux/store'
 import './App.css'
+import { Provider } from 'react-redux';
+import { useAppSelector } from './redux/hooks';
 
 const сards: IPostsProps = {
   posts: [
@@ -130,20 +136,32 @@ const сards: IPostsProps = {
 
 function App() {
   const themeContextValues = useInitThemeContext()
+
   return (
-    <ThemeContext.Provider value={themeContextValues}>
-      <div className={themeContextValues.theme == 'light' ? "wrapperLight" : "wrapper"}>
-        <Header />
-        <SearchPost posts={сards.posts} />
-        {/* <Success />
-      <Blog posts={сards.posts} />
-      <SelectedPost posts={сards.posts} />
-      <Registration />
-      <SignIn />
-      */}
-        <Footer />
-      </div>
-    </ThemeContext.Provider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ThemeContext.Provider value={themeContextValues}>
+          <div className={themeContextValues.theme == 'light' ? "wrapperLight" : "wrapper"}>
+            <Header />
+            <Routes>
+              <Route path='/'/>
+                {/* <Route index element={<Blog posts={сards.posts} />} />
+                {<Route path=':id' element={<SelPost posts={сards.posts} />} />}
+                <Route path=':id' element={
+                  <PrivateRoute dependency={true} route={'/posts'}><SelPost posts={сards.posts} /></PrivateRoute>} />
+              </Route> */}
+              <Route path='/Blog' element={<Blog posts={сards.posts} />} />
+              <Route path='/Registration' element={<Registration/>}/>
+              <Route path='/SignIn' element={<SignIn />} />
+              <Route path='/Success' element={<Success />} />
+              <Route path='/SearchPost' element={<SearchPost posts={сards.posts}/>} />
+            </Routes>
+            <Footer />
+          </div>
+        </ThemeContext.Provider>
+      </BrowserRouter >
+    </Provider>
+
   );
 }
 

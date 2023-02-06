@@ -14,6 +14,7 @@ export interface IPostsProps {
 }
 
 export interface IPostProps {
+  id: number;
   image: string;
   date: string;
   title: string;

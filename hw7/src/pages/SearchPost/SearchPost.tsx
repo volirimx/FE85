@@ -21,7 +21,7 @@ const SearchPost = ({posts}: IPostsProps) => {
   return (
     <PageTemplate linkName='Back to home' title='Search Post'>
       <input className={styles.search} name='search' placeholder='Input title of post' onChange={handleChangeInput}/>
-      {filteredPosts.map(post => <SmallPost key={uuid()} date={post.date} title={post.title} image={post.image}/>)}
+      {filteredPosts.map(post => <SmallPost id={post.id} key={uuid()} date={post.date} title={post.title} image={post.image}/>)}
     </PageTemplate>
   )
 }
