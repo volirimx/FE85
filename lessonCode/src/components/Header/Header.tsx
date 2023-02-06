@@ -1,14 +1,19 @@
 import React, { ForwardedRef, Ref, useContext, useEffect } from "react";
 import { ThemeContext, useThemeContext } from "../../context/theme";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import HeaderMenuItem from "../HeaderMenuItem/HeaderMenuItem";
 import styles from "./Header.module.css";
 
 const Header = () => {
-  // const { theme } = useThemeContext();
   const theme = useThemeContext();
+  const counter = useAppSelector((store) => store.counter.value);
+  // const dispatch = useAppDispatch();
   // useEffect(() => {
-  //   theme.changeThemeFunc?.();
+  //   dispatch(incrementByAmount(12));
   // }, []);
+  // const counter = useAppSelector((store) => store.counter.value);
+  console.log(counter);
+
   return (
     <div
       className={
@@ -16,7 +21,7 @@ const Header = () => {
       }
     >
       <HeaderMenuItem title="menu" />
-      <button onClick={theme.changeThemeFunc}>asd</button>
+      <span style={{ color: "white" }}>{counter}</span>
       <div className={styles.subContainer}>
         <HeaderMenuItem title="search" />
         <HeaderMenuItem title="user" />

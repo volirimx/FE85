@@ -1,18 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import styles from "./Styles.module.css";
-import { ClassComp } from "./components/ClassExample/ClassExample";
-import { arrayBuffer } from "stream/consumers";
-import FuncComp from "./components/FuncComp/FuncComp";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import PageTemplate from "./pages/PageTemplate/PageTemplate";
-import Login from "./pages/Login/Login";
 import Cards from "./pages/Cards/Cards";
 
-import axios from "axios";
 import { ThemeContext, useInitThemeContext } from "./context/theme";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 interface ICharacter {
   created: string;
@@ -39,15 +32,16 @@ function App() {
   const themeContextValues = useInitThemeContext();
 
   return (
-    <ThemeContext.Provider value={themeContextValues}>
-      <div className={"light" ? "AppLight" : "App"}>
-        <Header />
-        {/* <Login /> */}
-        <button>Change theme</button>
-        <Cards />
-        <Footer />
-      </div>
-    </ThemeContext.Provider>
+    <Provider store={store}>
+      <ThemeContext.Provider value={themeContextValues}>
+        <div className={"light" ? "AppLight" : "App"}>
+          <Header />
+          {/* <Login /> */}
+          <Cards />
+          <Footer />
+        </div>
+      </ThemeContext.Provider>
+    </Provider>
   );
 }
 
