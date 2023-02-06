@@ -1,0 +1,56 @@
+.container {
+    width: 500px;
+    border: 1px solid rgb(237, 235, 235);
+    margin: 0 auto;
+    background-color: rgb(237, 235, 235);
+}
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.input {
+    width: 400px;
+    height: 60px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    border: 1px solid rgb(237, 235, 235);
+}
+.text {
+    font-weight: bolder;
+    text-align: left;
+    margin-left: 50px;
+}
+.buttonForgot {
+    width: 150px;
+    margin-left: 50px;
+    cursor: pointer;
+    background-color: rgb(237, 235, 235);
+    border: 1px solid rgb(237, 235, 235);
+    text-align: left;
+    margin-bottom: 20px;
+}
+.buttonForgot:hover {
+    font-weight: bolder;
+}
+.buttonSign {
+    background-color: rgb(44, 44, 156);
+    border: 1 px solid rgb(44, 44, 156);
+    width: 400px;
+    height: 50px;
+    margin: 0 auto;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.registration {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+.buttonSmallSign {
+    background-color: rgb(237, 235, 235);
+    border: 1px solid rgb(237, 235, 235);
+    color: rgb(44, 44, 156);
+    font-weight: bolder;
+    cursor: pointer;
+}

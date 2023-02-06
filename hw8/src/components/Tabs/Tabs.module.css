@@ -1,0 +1,15 @@
+.tab {
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 50px;
+    font-weight: bolder;
+}
+.tab:hover {
+    color: rgb(44, 44, 156);
+}
+.tabdisabled {
+    color: rgb(177, 177, 177);
+    font-size: 18px;
+    margin-left: 50px;
+    font-weight: bolder;
+}
