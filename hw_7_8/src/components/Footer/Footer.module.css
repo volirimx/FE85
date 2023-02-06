@@ -1,0 +1,19 @@
+.wrapper {
+  background-color: #f0f0f0;
+}
+
+.wrapperDark {
+  background-color: rgb(43, 43, 44);
+  color: #fff;
+}
+
+.container {
+  border-top: 1px solid #888888;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 250px;
+  margin: 0 30px;
+}
+

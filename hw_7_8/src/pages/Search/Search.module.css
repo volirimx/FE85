@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.search {
+  width: 700px;
+  border: none;
+  height: 30px;
+  margin: 10px 0;
+}
+
+.search::placeholder {
+  padding-left: 10px;
+}
