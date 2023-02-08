@@ -28,8 +28,10 @@ export const SignUp = () => {
     event.preventDefault()
     if (signUp.password !== signUp.repeatPassword) {
       alert ('Not match')
+    } else {
+      alert('Enter allowed')
     }
-    alert('Enter allowed')
+    
   }
 
   return (
