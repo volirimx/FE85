@@ -17,6 +17,9 @@ import { ThemeContext, useInitThemeContext } from './context/theme';
 import Search from './pages/Search/Search';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AuthRoot from './components/routes/AuthRoot/AuthRoot';
+import Modal from './components/Modal/Modal';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 function App() {
 
 
@@ -61,34 +64,37 @@ function App() {
 
 
   return (
-    <BrowserRouter>
-      <ThemeContext.Provider value={themeContextValues}>
-      <div className={themeContextValues.theme === 'light' ? 'container' : 'containerDark'}>
-        <Menu changeSearch={changeSearch} />
-        <Routes>
-        <Route path='/Posts' >
-          <Route index element={<AllPosts posts={posts} />}></Route>
-          <Route element={
-            <AuthRoot route='/posts' dependency={true}>
-              <SelectedPost posts={posts} />
-          </AuthRoot>
-          } path=':id' /> 
-        </Route>
-        <Route element={<Login  />} path='/Login' /> 
-        <Route element={<Signin  />} path='/Signin' /> 
-        <Route element={<Success />} path='/Success' /> 
-        <Route element={<Search search={searchResult} posts={posts} />} path='/Search' /> 
-      </Routes>
-        {/* <AllPosts posts={posts} /> */}
-        {/* <SelectedPost posts={posts} /> */}
-        {/* <Login /> */}
-        {/* <Signin /> */}
-        {/* <Success /> */}
-        {/* <Search search={searchResult} posts={posts} /> */}
-        <Copyright />
-      </div>
-      </ThemeContext.Provider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ThemeContext.Provider value={themeContextValues}>
+        <div className={themeContextValues.theme === 'light' ? 'container' : 'containerDark'}>
+          <Menu changeSearch={changeSearch} />
+          <Modal />
+          <Routes>
+          <Route path='/Posts' >
+            <Route index element={<AllPosts posts={posts} />}></Route>
+            <Route element={
+              <AuthRoot route='/posts' dependency={true}>
+                <SelectedPost posts={posts} />
+            </AuthRoot>
+            } path=':id' /> 
+          </Route>
+          <Route element={<Login  />} path='/Login' /> 
+          <Route element={<Signin  />} path='/Signin' /> 
+          <Route element={<Success />} path='/Success' /> 
+          <Route element={<Search search={searchResult} posts={posts} />} path='/Search' /> 
+        </Routes>
+          {/* <AllPosts posts={posts} /> */}
+          {/* <SelectedPost posts={posts} /> */}
+          {/* <Login /> */}
+          {/* <Signin /> */}
+          {/* <Success /> */}
+          {/* <Search search={searchResult} posts={posts} /> */}
+          <Copyright />
+        </div>
+        </ThemeContext.Provider>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
