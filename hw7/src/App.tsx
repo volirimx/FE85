@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute'
+import Modal from './components/Modal/Modal'
 import Success from '../src/pages/Success/Success'
 import SignIn from '../src/pages/SignIn/SignIn'
 import Registration from '../src/pages/Registration/Registration'
@@ -133,6 +134,8 @@ const сards: IPostsProps = {
   ]
 }
 
+const arrID = сards.posts.map(post => post.id)
+
 
 function App() {
   const themeContextValues = useInitThemeContext()
@@ -144,18 +147,21 @@ function App() {
           <div className={themeContextValues.theme == 'light' ? "wrapperLight" : "wrapper"}>
             <Header />
             <Routes>
-              <Route path='/'/>
-                {/* <Route index element={<Blog posts={сards.posts} />} />
+              {/* <Route index element={<Blog posts={сards.posts} />} />
                 {<Route path=':id' element={<SelPost posts={сards.posts} />} />}
                 <Route path=':id' element={
                   <PrivateRoute dependency={true} route={'/posts'}><SelPost posts={сards.posts} /></PrivateRoute>} />
               </Route> */}
-              <Route path='/Blog' element={<Blog posts={сards.posts} />} />
-              <Route path='/Registration' element={<Registration/>}/>
-              <Route path='/SignIn' element={<SignIn />} />
-              <Route path='/Success' element={<Success />} />
-              <Route path='/SearchPost' element={<SearchPost posts={сards.posts}/>} />
+              <Route path='/blog' >
+                <Route index element={<Blog posts={сards.posts} />}/>
+                <Route path=':id' element={<SelPost posts={сards.posts} />} />
+              </Route>
+              <Route path='/registration' element={<Registration/>}/>
+              <Route path='/signIn' element={<SignIn />} />
+              <Route path='/success' element={<Success />} />
+              <Route path='/searchPost' element={<SearchPost posts={сards.posts}/>} />
             </Routes>
+            <Modal posts={сards.posts} />
             <Footer />
           </div>
         </ThemeContext.Provider>

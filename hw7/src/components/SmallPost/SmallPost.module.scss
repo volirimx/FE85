@@ -1,3 +1,4 @@
+@import "../../styles/vars.module.scss";
 .post {
     border-bottom: 1px solid rgb(155, 155, 155);
 }
@@ -42,4 +43,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.button {
+  width: 100px;
+  height: 30px;
+  padding: 5px;
+  background-color: $color-dark-blue;
+  color: #fff;
+  border: none;
 }

@@ -1,4 +1,4 @@
-import react, {useState} from 'react';
+import React, {useState} from 'react';
 import {Link, useLocation} from 'react-router-dom'
 import styles from './Burger.module.scss'
 
@@ -12,11 +12,11 @@ const Burger = () => {
         <span></span>
       </div>
       <nav className={styles.burger__menu}>
-        <Link to='/Blog' className={location.pathname === '/Blog' ? styles.linkActive : ''} onClick={() => setActive(!isActive)}>Blog</Link>
-        <Link to='/Registration' className={location.pathname === '/Registration' ? styles.linkActive : ''} onClick={()=> setActive(!isActive)}>Registration</Link>
-        <Link to='/SignIn' className={location.pathname === '/SignIn' ? styles.linkActive : ''} onClick={() => setActive(!isActive)}>SignIn</Link>
-        <Link to='/Success' className={location.pathname === '/Success' ? styles.linkActive : ''} onClick={() => setActive(!isActive)}>Success</Link >
-        <Link to='/SearchPost' className={location.pathname === '/SearchPost' ? styles.linkActive : ''} onClick={() => setActive(!isActive)}>SearchPost</Link>
+        <Link to='/blog' className={location.pathname === '/blog' ? styles.linkActive : ''} onClick={() => setActive(!isActive)}>Blog</Link>
+        <Link to='/registration' className={location.pathname === '/registration' ? styles.linkActive : ''} onClick={()=> setActive(!isActive)}>Registration</Link>
+        <Link to='/signIn' className={location.pathname === '/signIn' ? styles.linkActive : ''} onClick={() => setActive(!isActive)}>SignIn</Link>
+        <Link to='/success' className={location.pathname === '/success' ? styles.linkActive : ''} onClick={() => setActive(!isActive)}>Success</Link >
+        <Link to='/searchPost' className={location.pathname === '/searchPost' ? styles.linkActive : ''} onClick={() => setActive(!isActive)}>SearchPost</Link>
       </nav>
     </div>
   );

@@ -12,8 +12,6 @@ interface ICurrPost {
 }
 
 const SelectedPost = ({posts}: IPostsProps) => {
-  const params = useParams()
-  console.log(params)
   const [disabled, setDisabled] = useState({
     prev: false,
     next: false
