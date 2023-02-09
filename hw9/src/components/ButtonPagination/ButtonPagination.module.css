@@ -1,0 +1,19 @@
+.button {
+    background-color: rgb(240, 239, 239);
+    border: 1px solid rgb(240, 239, 239);
+    font-size: 16px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 1000px;
+    margin: 0 auto;
+}
+.containerNumb {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+}
