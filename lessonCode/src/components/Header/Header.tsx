@@ -12,7 +12,7 @@ const Header = () => {
   //   dispatch(incrementByAmount(12));
   // }, []);
   // const counter = useAppSelector((store) => store.counter.value);
-  console.log(counter);
+  // console.log(counter);
 
   return (
     <div
