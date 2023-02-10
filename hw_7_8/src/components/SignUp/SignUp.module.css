@@ -1,0 +1,48 @@
+.container {
+  display: "flex";
+  flex-direction: "column";
+  gap: "15px";
+  align-items: "center";
+
+}
+
+.loginForm {
+  border: 1px solid rgb(154, 154, 154);
+  padding: 30px;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.input {
+  display: block;
+  width: 300px;
+  height: 40px;
+  border: none;
+  margin-bottom: 30px;
+  margin-top: 5px;
+}
+
+input::placeholder {
+  padding-left: 15px;
+}
+
+.buttonLogin {
+  width: 300px;
+  height: 40px;
+  background-color: blue;
+  color: #fff;
+  border: none;
+}
+
+.text {
+  color: rgb(147, 148, 149);
+  text-align: center;
+  padding-top: 10px;
+}
+
+span {
+  color: blue;
+  font-weight: 600;
+}

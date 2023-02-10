@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 100px 450px;
+  background-color: #f0f0f0;
+}
+
+.containerDark {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 100px 450px;
+  background-color: rgb(43, 43, 44);
+  color: #fff;
+}
+
+.containerDark .link {
+  color: #fff;
+}
+
+.link {
+  font-size: 15px;
+  margin-bottom: 30px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.title {
+  font-size: 40px;
+  line-height: 60px;
+  font-weight: 700;
+
+  display: flex;
+}
+
+.body {
+  border: 1px solid #dfd;
+}
+
+button {
+  cursor: pointer;
+}

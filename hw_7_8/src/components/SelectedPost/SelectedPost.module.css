@@ -1,0 +1,70 @@
+.container {
+  background-color: #f0f0f0;
+  padding: 15px 25px 15px;
+  width: 700px;
+
+}
+
+.image {
+  width: 600px;
+  display: block;
+  margin: 0 auto;
+}
+
+.date {
+  font-weight: 600;
+  color: rgb(112, 112, 112);
+  padding: 0;
+  line-height: 0;
+}
+
+.text {
+  padding: 10px 10px 30px;
+
+}
+
+.title {
+  font-size: 31px;
+  font-weight: 600;
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.button button {
+  border: none;
+  margin: 5px;
+  height: 40px;
+  background-color: #d6d3d3;
+}
+
+.btnLike {
+  background-image: url('../../img/like.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+}
+
+.btnDisLike {
+  background-image: url('../../img/dislike.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+}
+
+.bookmark {
+  width: 150px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  padding: 0 10px;
+}
+
+.bookmark::before {
+  content: url('../../img/bookmark.png');
+
+  
+}
