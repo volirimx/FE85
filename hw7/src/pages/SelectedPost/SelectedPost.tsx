@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styles from './SelectedPost.module.scss'
 import { IPostsProps } from '../../types';
 import PageTemplate from '../PageTemplate/PageTemplate';
-import Pagination from '../../components/Pagination/Pagination'
+import Pagination from '../../components/Pagination/Pagination';
+import {useParams} from 'react-router-dom'
 
 interface ICurrPost {
   prev: number;

@@ -7,6 +7,8 @@ export interface IPost {
   title: string;
   description?: string;
   author: string;
+  likes?: number;
+  disLikes?: number;
 }
 
 export interface IPostsProps {
@@ -14,6 +16,7 @@ export interface IPostsProps {
 }
 
 export interface IPostProps {
+  id: number;
   image: string;
   date: string;
   title: string;

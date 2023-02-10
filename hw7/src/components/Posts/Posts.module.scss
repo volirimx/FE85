@@ -1,5 +1,12 @@
 .posts {
-    background-color: rgb(241, 253, 255);
+    background-color: rgb(11, 48, 55);
+    padding: 40px;
+    display: grid;
+    gap: 20px;
+}
+
+.postsLight {
+    background-color: rgb(197, 239, 247);
     padding: 40px;
     display: grid;
     gap: 20px;
