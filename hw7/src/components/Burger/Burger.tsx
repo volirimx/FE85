@@ -17,8 +17,8 @@ const Burger = ({open, setOpen}: IBurger) => {
     }
     return (
         <div className={styles.container} onClick={handleBurgerClick}>
-            <main className={open ? styles.closedMenu : styles.menuIsOpen}></main>
-            <ul className={open ? styles.listContainerClosed : styles.listContainer}>
+            <main className={open ? styles.menuIsOpen : styles.closedMenu}></main>
+            <ul className={open ? styles.listContainer : styles.listContainerClosed}>
                 <li className={location.pathname === '/Login' ? styles.active : ''} onClick={() => navigate('/Login')}>Login</li>
                 <li className={location.pathname === '/Signin' ? styles.active : ''} onClick={() => navigate('/Signin')}>Sign In</li>
                 <li className={location.pathname === '/posts' ? styles.active : ''} onClick={() => navigate('/posts')}>All Posts</li>
