@@ -8,6 +8,7 @@ import { turnNumberIntoArray } from "../../utils";
 import { ThemeContext } from "../../context/theme";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { increment } from "../../redux/slices/counterSlice";
+import { getAllPosts } from "../../redux/slices/cards";
 
 interface ICharacter {
   created: string;
@@ -30,15 +31,13 @@ interface ICharacter {
   url: string;
 }
 
-interface ICharactersInfo {
-  count: number;
-  //   next: string | null;
-  pages: number;
-  //   prev: string | null;
-}
-
 const Cards = () => {
   const posts = useAppSelector((store) => store.cards.cards);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getAllPosts(2));
+  }, []);
   return (
     <PageTemplate title={"Card"} linkName={"none"}>
       <div className={styles.container}>

@@ -6,7 +6,7 @@ import styles from "./Header.module.css";
 
 const Header = () => {
   const theme = useThemeContext();
-  const counter = useAppSelector((store) => store.counter.value);
+  const username = useAppSelector((store) => store.user.username);
   // const dispatch = useAppDispatch();
   // useEffect(() => {
   //   dispatch(incrementByAmount(12));
@@ -21,7 +21,7 @@ const Header = () => {
       }
     >
       <HeaderMenuItem title="menu" />
-      <span style={{ color: "white" }}>{counter}</span>
+      <span style={{ color: "white" }}>{username}</span>
       <div className={styles.subContainer}>
         <HeaderMenuItem title="search" />
         <HeaderMenuItem title="user" />
