@@ -21,6 +21,7 @@ const Search = ( {search, posts}: ISearch )  => {
             title={item.title}
             description={item.description}
             author={item.author}
+            id={item.id}
             />)}
         </div>
     )

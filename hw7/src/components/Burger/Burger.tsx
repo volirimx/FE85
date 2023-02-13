@@ -24,6 +24,7 @@ const Burger = ({open, setOpen}: IBurger) => {
                 <li className={location.pathname === '/posts' ? styles.active : ''} onClick={() => navigate('/posts')}>All Posts</li>
                 <li className={location.pathname === '/Success' ? styles.active : ''} onClick={() => navigate('/Success')}>Success</li>
                 <li className={location.pathname === '/Search' ? styles.active : ''} onClick={() => navigate('/Search')}>Search</li>
+                <li className={location.pathname === '/Favourites' ? styles.active : ''} onClick={() => navigate('/Favourites')}>Favourite</li>
             </ul>
         </div>
     

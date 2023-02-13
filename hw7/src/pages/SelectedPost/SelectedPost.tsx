@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Copyright from "../../components/Copyright/Copyright";
 import Menu from "../../components/Menu/Menu";
 import Post from "../../components/Post/Post";
+import { useAppSelector } from "../../redux/hooks";
 import styles from './SelectedPost.module.css'
 interface IPost {
     id: number
@@ -21,7 +22,8 @@ interface ISelectedPost {
 }
 
 
-const SelectedPost = ({ posts }: ISelectedPost) => {
+const SelectedPost = () => {
+    const posts = useAppSelector(store => store.card.cards)
     const { id } = useParams()
     const newItem = posts.find((item) => item.id === Number(id))
     if(newItem) {
@@ -38,6 +40,7 @@ const SelectedPost = ({ posts }: ISelectedPost) => {
                 description={newItem.description}
                 author={newItem.author}
                 key={newItem.id}
+                id={newItem.id}
             />
         </div>
     )

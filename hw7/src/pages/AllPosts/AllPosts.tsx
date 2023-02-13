@@ -5,6 +5,7 @@ import Menu from "../../components/Menu/Menu"
 import SmallerPost from "../../components/SmallerPost/SmallerPost"
 import SmallestPost from "../../components/SmallestPost/SmallestPost"
 import styles from './AllPosts.module.css'
+import { useAppSelector } from "../../redux/hooks"
 
 
 export interface IPost {
@@ -19,11 +20,8 @@ export interface IPost {
 }
 
 
-interface IAllPosts {
-    posts: IPost[]
-}
-
-const AllPosts = ({ posts }: IAllPosts) => {
+const AllPosts = () => {
+    const posts = useAppSelector((store) => store.card.cards)
     return (
         <div className={styles.container}>
             <div className={styles.posts}>
