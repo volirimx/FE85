@@ -1,0 +1,54 @@
+
+.wrapper {
+    margin-top: 30px;
+}
+
+.wrapper.wrapperDark .input {
+    background-color: #012675;
+    color: white;
+}
+
+.wrapper.wrapperDark .searchResultText {
+    color: white;
+}
+
+.form {
+    display: flex;
+}
+
+.input {
+    padding: 10px;
+    flex: 0 1 500px;
+    border: 3px solid #3B1FEA;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+    font-size: 20px;
+}
+
+.button {
+    width: 100px;
+    background-color: #3B1FEA;
+    color: white;
+    border-radius: 0 10px 10px 0;
+    font-size: 20px;
+    padding: 10px;
+    transition: all .1s;
+}
+
+.button:hover {
+    background-color: #5846ff;
+}
+
+.searchResultText {
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+.searchResultText span {
+    color: #3B1FEA;
+}
+
+.posts {
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
