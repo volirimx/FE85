@@ -6,8 +6,9 @@ import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import Pagination from "../../components/Pagination/Pagination";
 import { turnNumberIntoArray } from "../../utils";
 import { ThemeContext } from "../../context/theme";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { increment } from "../../redux/slices/counterSlice";
+import { getAllPosts } from "../../redux/slices/cards";
 
 interface ICharacter {
   created: string;
@@ -30,90 +31,20 @@ interface ICharacter {
   url: string;
 }
 
-interface ICharactersInfo {
-  count: number;
-  //   next: string | null;
-  pages: number;
-  //   prev: string | null;
-}
-
 const Cards = () => {
-  const [characters, setCharacters] = useState<ICharacter[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [charactersInfo, setCharactersInfo] = useState<ICharactersInfo>();
+  const posts = useAppSelector((store) => store.cards.cards);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    (async () => {
-      const response = await axios.get(
-        `https://rickandmortyapi.com/api/character?page=${currentPage}`
-      );
-
-      if (response.status !== 200) {
-        console.log("err");
-        return;
-      }
-      setCharactersInfo({
-        count: response.data.info.count,
-        pages: response.data.info.pages,
-      });
-      setCharacters(response.data.results);
-    })();
+    dispatch(getAllPosts(2));
   }, []);
-
-  useEffect(() => {
-    (async () => {
-      const response = await axios.get(
-        `https://rickandmortyapi.com/api/character?page=${currentPage}`
-      );
-
-      if (response.status !== 200) {
-        console.log("err");
-        return;
-      }
-      setCharacters(response.data.results);
-    })();
-  }, [currentPage]);
-
-  useEffect(() => {
-    (async () => {
-      const response = await axios.get(
-        "https://rickandmortyapi.com/api/character/?page=2"
-      );
-    })();
-  }, []);
-
-  const pagesArray = useMemo(
-    () => turnNumberIntoArray(charactersInfo?.pages),
-    [charactersInfo]
-  );
-
-  const handlePageButtonClick = (page: number) => {
-    setCurrentPage(page);
-  };
-
-  const handleButtonClick = () => {
-    dispatch(increment());
-  };
-
   return (
     <PageTemplate title={"Card"} linkName={"none"}>
-      <button onClick={handleButtonClick}>Change theme</button>
       <div className={styles.container}>
-        {characters.map((character) => (
-          <CharacterCard
-            name={character.name}
-            img={character.image}
-            status={character.status}
-            gender={character.gender}
-            key={character.id}
-          />
+        {posts.map((character) => (
+          <CharacterCard card={character} key={character.id} />
         ))}
       </div>
-      <Pagination
-        pagesArray={pagesArray}
-        handlePageButtonClick={handlePageButtonClick}
-      />
     </PageTemplate>
   );
 };
