@@ -1,6 +1,8 @@
 
 import styles from './Post.module.css'
 import { useThemeContext } from '../../context/theme';
+import { useAppDispatch } from '../../redux/hooks';
+import { changeFavourites } from '../../redux/slices/cardSlice';
 
 
 interface IPost {
@@ -11,12 +13,16 @@ interface IPost {
     title: string;
     description: string;
     author: number;
+    id: number
 }
 
 
-const Post = ({ image, text, date, lesson_num, title, description, author}: IPost) => {
+const Post = ({ image, text, date, lesson_num, title, description, author, id}: IPost) => {
     const theme = useThemeContext()
-
+    const dispatch = useAppDispatch()
+    const handleRemoveFromFavouritesButtonClick = () => {
+        dispatch(changeFavourites(id))
+    }
     return (
         <div className={theme.theme === 'light' ? styles.container : styles.containerDark}>
             <img src={image} alt="" className={styles.image} />
@@ -27,6 +33,7 @@ const Post = ({ image, text, date, lesson_num, title, description, author}: IPos
                 <div>{description}</div>
                 <div>{`Author: ${author}`}</div>
                 <div>{date}</div>
+                <button onClick={handleRemoveFromFavouritesButtonClick}>Remove from Favourites</button>
             </div>
         </div>
     )

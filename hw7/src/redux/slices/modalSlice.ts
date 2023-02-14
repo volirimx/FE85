@@ -15,7 +15,7 @@ interface ICounterState {
 
 
 export const initialState: ICounterState = {
-    value: true,
+    value: false,
     card: {
         image: '',
         text: ''

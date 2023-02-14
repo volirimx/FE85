@@ -20,6 +20,8 @@ import AuthRoot from './components/routes/AuthRoot/AuthRoot';
 import Modal from './components/Modal/Modal';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import { useAppSelector } from './redux/hooks';
+import FavouritePosts from './pages/FavouritePosts/FavouritePosts';
 function App() {
 
 
@@ -62,7 +64,6 @@ function App() {
 
   const themeContextValues = useInitThemeContext();
 
-
   return (
     <Provider store={store}>
       <BrowserRouter>
@@ -72,24 +73,19 @@ function App() {
           <Modal />
           <Routes>
           <Route path='/Posts' >
-            <Route index element={<AllPosts posts={posts} />}></Route>
+            <Route index element={<AllPosts />}></Route>
             <Route element={
               <AuthRoot route='/posts' dependency={true}>
-                <SelectedPost posts={posts} />
+                <SelectedPost />
             </AuthRoot>
             } path=':id' /> 
           </Route>
           <Route element={<Login  />} path='/Login' /> 
           <Route element={<Signin  />} path='/Signin' /> 
           <Route element={<Success />} path='/Success' /> 
-          <Route element={<Search search={searchResult} posts={posts} />} path='/Search' /> 
+          <Route element={<Search search={searchResult} posts={posts} />} path='/Search' />
+          <Route element={<FavouritePosts/>} path='/Favourites' />
         </Routes>
-          {/* <AllPosts posts={posts} /> */}
-          {/* <SelectedPost posts={posts} /> */}
-          {/* <Login /> */}
-          {/* <Signin /> */}
-          {/* <Success /> */}
-          {/* <Search search={searchResult} posts={posts} /> */}
           <Copyright />
         </div>
         </ThemeContext.Provider>

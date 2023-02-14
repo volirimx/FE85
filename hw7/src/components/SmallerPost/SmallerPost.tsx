@@ -2,8 +2,9 @@ import React from "react";
 import styles from './SmallerPost.module.css'
 import { useThemeContext } from "../../context/theme";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { openModal } from "../../redux/slices/modalSlice";
+import { changeFavourites } from "../../redux/slices/cardSlice";
 
 
 
@@ -35,6 +36,9 @@ const SmallerPost = ({ image, text, date, lesson_num, title, description, author
             }
         }))
     }
+    const handleInFavouritesButtonClick = () => {
+        dispatch(changeFavourites(id))
+    }
     return (
         <>
         <div className={theme.theme === 'light' ? styles.container : styles.containerDark} onClick={() => navigate(`${id}`)}>
@@ -48,6 +52,7 @@ const SmallerPost = ({ image, text, date, lesson_num, title, description, author
             </div>
         </div>
         <button onClick={handlePreviewButtonClick}>Preview</button>
+        <button onClick={handleInFavouritesButtonClick}>In Favourites</button>
         </>
     )
 }

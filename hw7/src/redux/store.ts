@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import cardReducer from "./slices/cardSlice";
 
 import modalReducer from "./slices/modalSlice";
 
@@ -9,7 +10,8 @@ import modalReducer from "./slices/modalSlice";
 export const store = configureStore(
     {
         reducer:{
-            modal: modalReducer
+            modal: modalReducer,
+            card: cardReducer
         },
     }
 )
