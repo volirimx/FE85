@@ -37,6 +37,7 @@ export const modalSlice = createSlice({
         },
         isOpened: true
       }
+      console.log(action.payload)
     },
 
     isOpenedModal: (state) => {

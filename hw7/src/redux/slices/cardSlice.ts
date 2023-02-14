@@ -1,5 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export interface Card {
   id: number;
@@ -9,9 +10,8 @@ export interface Card {
   lesson_num: number;
   title: string;
   description: string;
-  author: number;
-  likes: number;
-  disLikes: number;
+  author: string;
+  saved: boolean;
 }
 
 export interface CardsState {
@@ -22,65 +22,149 @@ const initialState: CardsState = {
   cards: [
     {
       id: 1,
-      image:
-        "https://tms-studapi-dev.s3.amazonaws.com/media/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2021-08-04_%D0%B2_16.11.10.png",
-      text: "фыв",
+      image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125512_27-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-33.jpg",
+      text: "0 Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dignissimos, quo voluptatibus doloremque perspiciatis quas saepe alias? Esse voluptate quasi sapiente architecto consectetur, laborum nesciunt ipsum nemo iusto voluptates illum?",
       date: "2021-10-06",
       lesson_num: 123,
-      title: "фывфывфыв",
-      description:
-        "default default default default default default default default default default default default default default default default default default default default default default default default default default default",
-      author: 7,
-      likes: 0,
-      disLikes: 0,
+      title: "first post",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
+      author: '7',
+      saved: false
     },
     {
       id: 2,
-      image:
-        "https://tms-studapi-dev.s3.amazonaws.com/media/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2021-08-04_%D0%B2_17.37.38.png",
-      text: "Text",
-      date: "2021-10-07",
-      lesson_num: 48,
-      title: "Title",
-      description:
-        "default default default default default default default default default default default default default default default default default default default default default default default default default default default",
-      author: 7,
-      likes: 0,
-      disLikes: 0,
+      image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125421_11-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-13.jpg",
+      text: "1",
+      date: "2021-10-06",
+      lesson_num: 456,
+      title: "second post",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
+      author: '8',
+      saved: false
+    },
+    {
+      id: 3,
+      image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125512_27-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-33.jpg",
+      text: "2",
+      date: "2021-10-06",
+      lesson_num: 789,
+      title: "third post",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
+      author: '9',
+      saved: false
+    },
+    {
+      id: 4,
+      image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125512_27-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-33.jpg",
+      text: "3",
+      date: "2021-10-06",
+      lesson_num: 123,
+      title: "fourth post",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
+      author: '7',
+      saved: false
+    },
+    {
+      id: 5,
+      image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125421_11-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-13.jpg",
+      text: "4",
+      date: "2021-10-06",
+      lesson_num: 456,
+      title: "fifth.post",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
+      author: '8',
+      saved: false
+    },
+    {
+      id: 6,
+      image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125512_27-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-33.jpg",
+      text: "5",
+      date: "2021-10-06",
+      lesson_num: 789,
+      title: "sixth post",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
+      author: '9',
+      saved: false
+    },
+    {
+      id: 7,
+      image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125512_27-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-33.jpg",
+      text: "6",
+      date: "2021-10-06",
+      lesson_num: 123,
+      title: "seventh post",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
+      author: '7',
+      saved: false
+    },
+    {
+      id: 8,
+      image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125421_11-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-13.jpg",
+      text: "7",
+      date: "2021-10-06",
+      lesson_num: 456,
+      title: "eightth post",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
+      author: '8',
+      saved: false
+    },
+    {
+      id: 9,
+      image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125512_27-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-33.jpg",
+      text: "8",
+      date: "2021-10-06",
+      lesson_num: 789,
+      title: "nineth post",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
+      author: '9',
+      saved: false
     },
     {
       id: 10,
-      image: "https://tms-studapi-dev.s3.amazonaws.com/media/Niira.jpg",
-      text: "my sisters cat",
-      date: "2021-10-08",
-      lesson_num: 49,
-      title: "Cat Niira",
-      description:
-        "default default default default default default default default default default default default default default default default default default default default default default default default default default default",
-      author: 123,
-      likes: 0,
-      disLikes: 0,
+      image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125421_11-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-13.jpg",
+      text: "9",
+      date: "2021-10-06",
+      lesson_num: 456,
+      title: "tenth post",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
+      author: '8',
+      saved: false
     },
-  ],
+    {
+      id: 11,
+      image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125512_27-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-33.jpg",
+      text: "10",
+      date: "2021-10-06",
+      lesson_num: 789,
+      title: "eleventh post",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
+      author: '9',
+      saved: false
+    },
+  ]
 };
 
-export const cardPreviewSlice = createSlice({
-  name: "cardPreview",
+export const cardSlice = createSlice({
+  name: "posts",
   initialState,
   reducers: {
-    like: (state, action: PayloadAction<number>) => {
+    save: (state, action: PayloadAction<number>) => {
       const postIndex = state.cards.findIndex(p => p.id === action.payload)
-      state.cards[postIndex].likes++
-    },
-    disLike: (state, action: PayloadAction<number>) => {
-      const postIndex = state.cards.findIndex(p => p.id === action.payload)
-      state.cards[postIndex].disLikes--
-    },
+      state.cards[postIndex].saved = !state.cards[postIndex].saved
+    }
+    // like: (state, action: PayloadAction<number>) => {
+    //   const postIndex = state.cards.findIndex(p => p.id === action.payload)
+    //   state.cards[postIndex].likes++
+    // },
+    // disLike: (state, action: PayloadAction<number>) => {
+    //   const postIndex = state.cards.findIndex(p => p.id === action.payload)
+    //   state.cards[postIndex].disLikes--
+    // },
   },
 });
 
-export const { like, disLike } = cardPreviewSlice.actions
+export const { save } = cardSlice.actions
 
 
-const cardReducer = cardPreviewSlice.reducer
+const cardReducer = cardSlice.reducer
 export default cardReducer

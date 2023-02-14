@@ -17,6 +17,7 @@ const Burger = () => {
         <Link to='/signIn' className={location.pathname === '/signIn' ? styles.linkActive : ''} onClick={() => setActive(!isActive)}>SignIn</Link>
         <Link to='/success' className={location.pathname === '/success' ? styles.linkActive : ''} onClick={() => setActive(!isActive)}>Success</Link >
         <Link to='/searchPost' className={location.pathname === '/searchPost' ? styles.linkActive : ''} onClick={() => setActive(!isActive)}>SearchPost</Link>
+        <Link to='/savedPosts' className={location.pathname === '/savedPosts' ? styles.linkActive : ''} onClick={() => setActive(!isActive)}>SavedPosts</Link>
       </nav>
     </div>
   );

@@ -11,6 +11,7 @@ import SearchPost from '../src/pages/SearchPost/SearchPost'
 import SelectedPost from '../src/pages/SelectedPost/SelectedPost'
 import SelPost from '../src/pages/SelPost/SelPost'
 import Blog from '../src/pages/Blog/Blog'
+import SavedPosts from '../src/pages/SavedPosts/SavedPosts'
 import { IPostsProps } from './types/index'
 import { ThemeContext, useInitThemeContext } from "./context/theme"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -153,13 +154,14 @@ function App() {
                   <PrivateRoute dependency={true} route={'/posts'}><SelPost posts={сards.posts} /></PrivateRoute>} />
               </Route> */}
               <Route path='/blog' >
-                <Route index element={<Blog posts={сards.posts} />}/>
+                <Route index element={<Blog posts={сards.posts}/>}/>
                 <Route path=':id' element={<SelPost posts={сards.posts} />} />
               </Route>
               <Route path='/registration' element={<Registration/>}/>
               <Route path='/signIn' element={<SignIn />} />
               <Route path='/success' element={<Success />} />
               <Route path='/searchPost' element={<SearchPost posts={сards.posts}/>} />
+              <Route path='/savedPosts' element={<SavedPosts />} />
             </Routes>
             <Modal posts={сards.posts} />
             <Footer />

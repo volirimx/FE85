@@ -18,7 +18,7 @@ const Modal = ({ posts }: IPostsProps) => {
   const dispatch = useAppDispatch()
   const selector = useAppSelector(s => s.modal)
 
-  const postIndex = posts.findIndex(post => post.id === selector.value.post.id)
+  let postIndex = posts.findIndex(post => post.id === selector.value.post.id)
 
   const [disabled, setDisabled] = useState({
     prev: false,
@@ -29,6 +29,7 @@ const Modal = ({ posts }: IPostsProps) => {
     curr: postIndex,
     next: postIndex + 1,
   })
+  console.log(post)
 
   useEffect(() => {
     if (post.prev <= -1) {
