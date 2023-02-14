@@ -1,0 +1,19 @@
+.title {
+    color: #2000E7;
+}
+
+.title.titleDark * {
+    color: white;
+}
+
+.button {
+    color: #5E5E5E;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.text {
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
