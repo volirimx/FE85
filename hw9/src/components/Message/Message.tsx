@@ -14,7 +14,7 @@ const Message = ({text, message, button}: IMessage) => {
             <div className={styles.container}>
                 <p className={styles.text}>{text}</p>
                 <p className={styles.text}>{message}</p>
-                <button className={styles.button}>{button}</button>
+                <button className={styles.button}><a className={styles.link} href="/">{button}</a></button>
             </div>
         </div>
     )

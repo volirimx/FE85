@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./AllPosts.module.css";
 import Title from "../../components/Title/Title";
 import Tabs from "../../components/Tabs/Tabs";
@@ -46,6 +46,7 @@ const tabs = ['All', 'My Favorite', 'Popular']
 
 const AllPosts = () => {
     const [activeTab, setActiveTab] = useState(0)
+
     return (
         <div>
             <div>
@@ -53,6 +54,7 @@ const AllPosts = () => {
                     <Title
                         title="Blog"
                     />
+                    <button className={styles.button}><a className={styles.link} href="/search">Search</a></button>
                     <div className="tabs">{tabs.map((tab, index) => (<Tabs
                         title={tab}
                         index={index}
@@ -70,6 +72,7 @@ const AllPosts = () => {
                                 data={post.date}
                                 image={post.image}
                                 key={post.id}
+                                id={post.id}
                             />)}
                         </div>
                         <div>
@@ -78,6 +81,7 @@ const AllPosts = () => {
                                 data={post.date}
                                 image={post.image}
                                 key={post.id}
+                                id={post.id}
                             />)}
                         </div>
                     </div>

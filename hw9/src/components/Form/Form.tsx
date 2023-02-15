@@ -24,11 +24,11 @@ const Form = () => {
                 <p className={styles.text}>Password</p>
                 <input className={styles.input} value={password} type="password" placeholder="Your password" onChange={(e => setPassword(e.target.value))}/>
                 <button className={styles.buttonForgot}>Forgot password</button>
-                <button onClick={submitValue} className={styles.buttonSign}>Sign In</button>
+                <button onClick={submitValue} className={styles.buttonSign}><a href="/posts" className={styles.swich}>Sign In</a></button>
             </form>
             <div className={styles.registration}>
                 <p>Don't have an account?</p>
-                <button className={styles.buttonSmallSign}>Sign In</button>
+                <p><a href="/registration" className={styles.link}>Sign In</a></p>
             </div>
         </div>
     )

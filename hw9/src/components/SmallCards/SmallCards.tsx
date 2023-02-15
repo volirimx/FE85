@@ -8,13 +8,16 @@ interface ISmallCard {
     data: string;
     image: string;
     id: number;
+    key: number;
 }
 
-const SmallCard = ({title, data, image, id}: ISmallCard) => {
+const SmallCard = ({title, data, image, id, key}: ISmallCard) => {
+
+    const navigate = useNavigate()
 
 
     return (
-        <div className={styles.card} >
+        <div className={styles.card} onClick={() => navigate(`${id}`) }>
             <div className={styles.content}>
                 <div>
                     <div className={styles.date}>{data}</div>

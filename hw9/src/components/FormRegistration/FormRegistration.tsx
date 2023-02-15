@@ -32,7 +32,7 @@ const FormRegistration = () => {
                 <p className={styles.text}>Repeat password</p>
                 <input className={styles.input} value={repeatPassword} type="password" placeholder="Repeat password" 
                     onChange={(e => setRepeatPassword(e.target.value))}/>
-                <button onClick={submitValue} className={styles.buttonRegister}>Register</button>
+                <button onClick={submitValue} className={styles.buttonRegister}><a className={styles.link} href="/success">Register</a></button>
             </form>
         </div>
     )

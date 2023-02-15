@@ -12,7 +12,12 @@ const BurgerMenu = () => {
             <div className={menu ? styles.baractive3 : styles.bar3}></div>
         </div>
         <div className={menu ? styles.menuactive : styles.menu__section}>
-            <div className={styles.part}></div>
+            <div className={styles.part}>
+                <a className={styles.menuSection} href="/posts">All Posts</a>
+                <a className={styles.menuSection} href="/">Login</a>
+                <a className={styles.menuSection} href="/registration">Registration</a>
+                <a className={styles.menuSection} href="/search">Search</a>
+            </div>
         </div>
     </div>
     )

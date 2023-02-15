@@ -46,28 +46,35 @@ interface IFullPosts {
     date: string;
 }
 
-const FullPost = ({title, image, description, date}: IFullPosts) => {
+const FullPost = () => {
 
-    return (
-        <div>
-            <div className={styles.container}>
-                <p className={styles.date}>date | {date}</p>
-                <Title
-                    title={title}
-                />
-                <div className={styles.image}>
-                    <img src={image}></img>
-                    <div className={styles.text}>{description}</div>
-                </div>
-                <div>
-                    <ButtonLike/>
-                </div>
-                <div>
-                    <ButtonSwitch/>
+    const params = useParams();
+
+    const post = posts.find(item => item.id === Number(params.id));
+
+    if (post) {
+        return (
+            <div>
+                <div className={styles.container}>
+                    <p className={styles.date}>date | {post.date}</p>
+                    <Title
+                        title={post.title}
+                    />
+                    <a href="/posts" className={styles.link}>Back</a>
+                    <div className={styles.image}>
+                        <img src={post.image}></img>
+                        <div className={styles.text}>{post.description}</div>
+                    </div>
+                    <div>
+                        <ButtonLike/>
+                    </div>
+                    <div>
+                        <ButtonSwitch/>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    } else return null;
 };
 
 

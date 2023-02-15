@@ -74,6 +74,7 @@ const Search = () => {
                                 data={post.date}
                                 image={post.image}
                                 key={post.id}
+                                id={post.id}
                             />)}
                         </div>
                         <div>
@@ -82,6 +83,7 @@ const Search = () => {
                                 data={post.date}
                                 image={post.image}
                                 key={post.id}
+                                id={post.id}
                             />)}
                         </div>
                     </div>

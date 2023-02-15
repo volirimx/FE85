@@ -11,7 +11,6 @@ const Login = () => {
         <div>
             <div>
                 <div className={styles.container}>
-                    <ButtonBack/>
                     <Title
                         title="Sign In"
                     />

@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useContext } from 'react';
 import './App.css';
 import Success from './pages/Success/Success';
 import Login from './pages/Login/Login';
@@ -9,6 +9,8 @@ import AllPosts from './pages/AllPosts/AllPosts';
 import Registration from './pages/Registration/Registration';
 import Search from './pages/Search/Search';
 import Title from './components/Title/Title';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 
 const posts = [
@@ -55,7 +57,8 @@ type ThemeContext = {
 };
 
 
-export const ThemeContext = React.createContext<ThemeContext>({});
+export const ThemeContext = React.createContext<ThemeContext>({})
+
 
 
 function App() {
@@ -65,30 +68,46 @@ function App() {
         setTheme((curr) => curr === "light" ? "dark" : "light");
     }
 
+    const value = {
+        theme, 
+        changeThemeFunc
+    }
+
+
+
     return (
-        <ThemeContext.Provider value={{theme, changeThemeFunc}}>
-            <div className="App">
-                <Header
-                    firstName=""
-                    lastName=""
-                />
-                <div className="body" id={theme}>
-                    <button onClick={changeThemeFunc}>Change Theme</button>
-                    {/* <Login/> */}
-                    <Search/>
-                    {/* <AllPosts/> */}
-                </div>
-                <Footer/>
-            {/* <Registration/> */}
-            {/* <Success/> */}
-            {/* <FullPost
-                title={title[0]}
-                description={description[0]} 
-                date={date[0]}
-                image={image[0]}
-            />  */}
-            </div>
-        </ThemeContext.Provider>
+        <BrowserRouter>
+            <ThemeContext.Provider value={value}>
+                <div className="App" id={value.theme}>
+                    <Header
+                        firstName=""
+                        lastName=""
+                    />
+                    <Routes>
+                        <Route path="/" element={<Login/>}/>
+                        <Route path="/registration" element={<Registration/>}/>
+                        <Route path="/posts">
+                            <Route index element={<AllPosts/>}/>
+                            <Route path=":id" element={
+                                <PrivateRoute route="/posts" dependency={true}>
+                                    <FullPost/>
+                                </PrivateRoute>
+                            }/>
+                        </Route>
+                        <Route path="/search">
+                            <Route index element={<Search/>}/>
+                            <Route path=":id" element={
+                                <PrivateRoute route="/posts" dependency={true}>
+                                    <FullPost/>
+                                </PrivateRoute>
+                            }/>
+                        </Route>
+                        <Route path="/success" element={<Success/>}/>
+                    </Routes>
+                    </div>
+                    <Footer/>
+            </ThemeContext.Provider>
+        </BrowserRouter>
     )
 }
 

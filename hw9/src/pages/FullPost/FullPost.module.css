@@ -17,3 +17,8 @@
     text-align: center;
     font-size: 18px;
 }
+.link {
+    color: rgb(44, 44, 156);
+    font-size: 22px;
+    font-weight: bolder;
+}

@@ -42,3 +42,14 @@
     background-color: rgb(112, 112, 221);
     opacity: 0.4;
 }
+.part {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.menuSection {
+    margin-top: 20px;
+    font-size: 22px;
+    color: white;
+    font-weight: bolder;
+}
