@@ -1,0 +1,7 @@
+Варианты дизайна дипломных проектов:
+Блог
+https://www.figma.com/file/AYtSMLjegI6bf0kk9x7ctG/Blogologo?node-id=2%3A2
+Книжный магазин
+https://www.figma.com/file/HwHYKExmJ3NBDiMYCLgI7h/Bookstore?node-id=2%3A2
+Клон кинопоиска
+https://www.figma.com/file/qIREQBkg5YsPPQsPB7HCPI/Pixema?node-id=2%3A2
