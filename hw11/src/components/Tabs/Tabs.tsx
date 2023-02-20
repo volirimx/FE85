@@ -6,11 +6,10 @@ interface ITabs {
     index: number;
     activeTab: number;
     setActiveTab: any;
-    key: string;
 }
 
 
-const Tabs = ({title, index, setActiveTab, activeTab, key}: ITabs) => {
+const Tabs = ({title, index, setActiveTab, activeTab}: ITabs) => {
     return (
         <div className={styles.tabssection}>
             <a onClick={()=> setActiveTab(index)} 

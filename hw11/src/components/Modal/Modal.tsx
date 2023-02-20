@@ -4,6 +4,8 @@ import { showNextCard, showPrevCard, closeModal } from "../../redux/slices/Modal
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
 
+
+
 const Modal = () => {
 
     const card = useAppSelector((store) => store.modal.previewCard);
@@ -35,6 +37,7 @@ const Modal = () => {
                             <button onClick={(e: any) => {
                                 e.stopPropagation();
                                 dispatch(showNextCard());
+                                
                             }}>Next</button>
                         </div>
                     </div>

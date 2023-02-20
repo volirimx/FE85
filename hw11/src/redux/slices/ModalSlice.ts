@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
+import { posts } from "../../utility/posts";
 
 
 export interface Card {
@@ -19,7 +20,7 @@ export interface CardsState {
 }
 
 const initialState: CardsState = {
-    cards: [],
+    cards: posts,
     previewCard: undefined,
 };
 
@@ -42,7 +43,7 @@ export const ModalSlice = createSlice({
                 currentCardIndex + 1 === state.cards.length
                 
             ) {
-                return console.log(1);
+                return console.log(state.cards.length);
             }
             state.previewCard = state.cards[currentCardIndex + 1];
         },
