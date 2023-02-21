@@ -12,6 +12,7 @@ import SelectedPost from '../src/pages/SelectedPost/SelectedPost'
 import SelPost from '../src/pages/SelPost/SelPost'
 import Blog from '../src/pages/Blog/Blog'
 import SavedPosts from '../src/pages/SavedPosts/SavedPosts'
+import ActivatedPage from '../src/pages/ActivatedPage/ActivatedPage'
 import { IPostsProps } from './types/index'
 import { ThemeContext, useInitThemeContext } from "./context/theme"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -162,6 +163,7 @@ function App() {
               <Route path='/success' element={<Success />} />
               <Route path='/searchPost' element={<SearchPost posts={сards.posts}/>} />
               <Route path='/savedPosts' element={<SavedPosts />} />
+              <Route path='/activate/:uid/:token' element={<ActivatedPage />} />
             </Routes>
             <Modal posts={сards.posts} />
             <Footer />
