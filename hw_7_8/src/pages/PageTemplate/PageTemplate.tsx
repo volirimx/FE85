@@ -16,12 +16,12 @@ interface IPageTemplate {
 const PageTemplate = ({ children, title, linkName }: IPageTemplate ) => {
 
   const theme = useAppSelector((store) => store.theme.value)
-  console.log(theme);
+  const navigate = useNavigate()
 
   return (
     <div className={theme === 'light' ? styles.container : styles.containerDark}>
       <div>
-        <a className={styles.link} href="#">{linkName}</a>
+        <a className={styles.link} href="#" onClick={() => navigate('/Posts')}>{linkName}</a>
         <div className={styles.title}>{title}</div>
       </div>
       <div className={styles.body}>{children}</div>

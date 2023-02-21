@@ -45,4 +45,9 @@ input::placeholder {
 span {
   color: blue;
   font-weight: 600;
+  cursor: pointer;
+}
+
+span:hover {
+  color: rgb(248, 91, 74);
 }

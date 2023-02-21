@@ -52,6 +52,13 @@ button {
   margin: 5px;
 }
 
+.readMore {
+  width: 100px;
+  margin-left: 75px;
+  font-weight: 600;
+  border: 1px dotted #707070;
+}
+
 .btnLike {
   background-image: url('../../img/like.png');
 }

@@ -1,13 +1,16 @@
-import React from "react"
+import React, { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { changeTheme } from "../../redux/slices/counterSlice";
+import BurgerMenu from "../BurgerMenu/BurerMenu";
 import styles from "./Header.module.css"
 
 
 const Header = () => {
+  const [open, setOpen] = useState(false)
+  
     const theme = useAppSelector((store) => store.theme.value)
-    console.log(theme);
+    const navigate = useNavigate()
 
     const dispatch = useAppDispatch()
 
@@ -18,9 +21,10 @@ const Header = () => {
   return (
     <div>
       <div className={theme === 'light' ? styles.container : styles.containerDark} >
+      <BurgerMenu open={open} setOpen={setOpen} />
         <div className={styles.menu}></div>
         <div className={styles.subContainer}>
-          <div className={styles.search} ></div>
+          <div className={styles.search} onClick={() => navigate('/Search')}></div>
           <div className={styles.user}></div>
         </div>
       </div>

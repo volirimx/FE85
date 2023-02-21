@@ -16,7 +16,7 @@ import Modal from './components/Modal/Modal';
 import { SignUpPage } from './pages/SignUpPage/SignUpPage';
 import Search from './pages/Search/Search';
 
-const сardsData: IDataProps = {card: [
+export const сardsData: IDataProps = {card: [
   {
     id: 1,
     image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125512_27-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-33.jpg",
@@ -46,9 +46,38 @@ const сardsData: IDataProps = {card: [
     title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
     author: '9'
+  },
+  {
+    id: 4,
+    image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125512_27-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-33.jpg",
+    text: "фыв",
+    date: "2021-10-06",
+    lesson_num: 789,
+    title: "ewg Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
+    author: '9'
+  },
+  {
+    id: 5,
+    image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125421_11-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-13.jpg",
+    text: "фыв дло",
+    date: "2021-10-06",
+    lesson_num: 456,
+    title: "ewtwg Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
+    author: '8'
+  },
+  {
+    id: 6,
+    image: "https://vsegda-pomnim.com/uploads/posts/2022-04/1649125421_11-vsegda-pomnim-com-p-krasivie-vidi-prirodi-foto-13.jpg",
+    text: "фыв дло",
+    date: "2021-10-06",
+    lesson_num: 456,
+    title: "dsf Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus nulla quas voluptatibus iure non, exercitationem in rerum voluptatem eveniet.",
+    author: '8'
   }
 ],
-
 }
 
 function App() {
@@ -64,28 +93,31 @@ function App() {
           <div className="App">
             <Header />
             <div className="body">
-    {/* Пример */}
-              {/*<Routes>
-                <Route path="/posts">
-                  <Route element={<Posts />} index />
-                  <Route  path=":id" element={
-                    <PrivateRoute dependency={true} root={'/posts'}>
+              <Routes>
+                <Route path='/Posts' >
+                  <Route index element={<Posts />}></Route>
+                  <Route element={
+                    <PrivateRoute root='/posts' dependency={true}>
                       <Post card={сardsData.card} />
                     </PrivateRoute>
-                    } />
-                </Route>
-              </Routes> */}
+                    } path=':id' /> 
+                  </Route>
+                  <Route element={<LoginPage  />} path='/Login' /> 
+                  <Route element={<SignUpPage  />} path='/Signup' /> 
+                  <Route element={<Success />} path='/Success' /> 
+                  <Route element={<Search card={сardsData.card} /> } path='/Search' /> 
+              </Routes>
 
-
-    {/* Домашка 7-9 */}
               {/* <Success /> */}
               {/* <Search card={сardsData.card} /> */}
-              {/* <Posts />
-              <Post card={сardsData.card} /> */}
+              {/* <Posts /> */}
+              {/* <Post card={сardsData.card} /> */}
               {/* <SignUpPage /> */}
               {/* <LoginPage/> */}
+            
             </div>
             <Footer />
+            <Modal />
           </div>
         </ThemeContext.Provider>
       </BrowserRouter>

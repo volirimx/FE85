@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { CardDesctop } from "../../components/CardDesctop/CardDesctope";
-import { CardMobile } from "../../components/CardMobile/CardMobile";
 import { IData, IDataProps } from "../../components/types";
 import PageTemplate from "../PageTemplate/PageTemplate";
 import styles from "./Search.module.css"

@@ -11,8 +11,18 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 5px 5px 5px rgb(189, 189, 189);
   background-color: #e7e6e6;
+}
+
+.containerDark {
+  width: 500px;
+  margin: 30px auto;
+  font-weight: 500;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #656565;
 }
 
 .text p {
