@@ -24,10 +24,11 @@ const FavoriteCard = () => {
                         activeTab={activeTab}
                         setActiveTab={setActiveTab}
                         path={tab.path}
+                        key={index}
                         />))}
                     </div>
                     <div>
-                        <div>{favoritePost.filter(post => post.favorite).map((post) => <MediumCard card={post}/>)}</div>
+                        <div>{favoritePost.filter(post => post.favorite).map((post) => <MediumCard card={post} key={post.id}/>)}</div>
                     </div>
             </div>
         </div>

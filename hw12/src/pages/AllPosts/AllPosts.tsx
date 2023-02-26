@@ -25,6 +25,7 @@ const AllPosts = () => {
                         activeTab={activeTab}
                         setActiveTab={setActiveTab}
                         path={tab.path}
+                        key={index}
                         />))}
                     </div>
                 </div>
@@ -33,11 +34,13 @@ const AllPosts = () => {
                         <div>
                             {posts.map((post) => <MediumCard
                                 card={post}
+                                key={post.id}
                             />)}
                         </div>
                         <div>
                             {posts.map((post) => <MediumCard
                                 card={post}
+                                key={post.id}
                             />)}
                         </div>
                     </div>
@@ -45,11 +48,13 @@ const AllPosts = () => {
                         <div>
                             {posts.map((post) => <SmallCard
                                 card={post}
+                                key={post.id}
                             />)}
                         </div>
                         <div>
                             {posts.map((post) => <SmallCard
                                 card={post}
+                                key={post.id}
                             />)}
                         </div>
                     </div>

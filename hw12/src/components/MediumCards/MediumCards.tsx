@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from "./MediumCards.module.css";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../redux/hooks";
@@ -20,29 +20,16 @@ const MediumCard = ({ card }: IMediumCard) => {
     }
 
     const favoritePost = (event: any) => {
-        event.preventDefault();
         event.stopPropagation();
         dispatch(getFavoritePost(card.id))
     }
-
-    // const favCard = (event: any) => {
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //     let ind = card.favorite 
-    //     ind = true
-        
-    //     if ( ind === true && !favorite.includes(card) ) {
-    //         console.log(favorite);
-    //         return favorite.push(card);
-    //     } else return;
-    // }
-
+    
 
     const navigate = useNavigate()
     return (
         <div>
             <button onClick={previewCard}>Show</button>
-            <div className={styles.card} onClick={()=> navigate(`${card.id}`)}>
+            <div className={card.favorite ? styles.cardFavorite : styles.card} onClick={()=> navigate(`${card.id}`)}>
                 <img className={styles.image} src={card.image}></img>
                 <div className={styles.date}>{card.date}</div>
                 <div className={styles.title}>{card.title}</div>

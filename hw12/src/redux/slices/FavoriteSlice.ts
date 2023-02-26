@@ -27,14 +27,13 @@ export const FavoriteSlice = createSlice({
     name: "modal",
     initialState,
     reducers: {
-        getFavoritePost: (state: CardsState, action: PayloadAction<number>) => {
+        getFavoritePost: (state, action: PayloadAction<number>) => {
             state.cards.map((post) => {
                 if (post.id === action.payload) {
-                    post.favorite = !post.favorite
+                    post.favorite = !post.favorite;
                 }
             })
         },
-
     }
 });
     

@@ -13,7 +13,6 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import Modal from './components/Modal/Modal';
-import { useAppDispatch } from "./redux/hooks";
 import { posts } from './utility/posts';
 import FavoriteCard from './pages/FavoriteCard/FavoriteCard';
 
@@ -46,8 +45,6 @@ function App() {
         changeThemeFunc
     }
 
-
-
     return (
             <Provider store={store}>
                 <BrowserRouter>
@@ -58,7 +55,14 @@ function App() {
                                 lastName=""
                             />
                             <Routes>
-                                <Route path="/favorite" element={<FavoriteCard/>}/>
+                                <Route path="/favorite">
+                                    <Route index element={<FavoriteCard/>}/>
+                                    <Route path=":id" element={
+                                        <PrivateRoute route="/favorite" dependency={true}>
+                                            <FullPost/>
+                                        </PrivateRoute>
+                                    }/>
+                                </Route>
                                 <Route path="/" element={<Login/>}/>
                                 <Route path="/registration" element={<Registration/>}/>
                                 <Route path="/posts">

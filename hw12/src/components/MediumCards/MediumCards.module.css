@@ -9,6 +9,16 @@
     width: 312px;
     height: 300px;
 }
+.cardFavorite {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 3px solid rgb(241, 238, 238);
+    background-color: rgb(126, 126, 195);
+    padding: 10px;
+    width: 312px;
+    height: 300px;
+}
 .image {
     width: 310px;
     height: 200px;
