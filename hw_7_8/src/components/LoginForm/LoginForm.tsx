@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./LoginForm.module.css"
 
 export interface ILoginForm {
@@ -26,6 +27,8 @@ export const LoginForm = () => {
     console.log(loginForm)
   }
 
+  const navigate = useNavigate()
+
   return (
       <div className={styles.container}>
         <form className={styles.loginForm} >
@@ -38,7 +41,7 @@ export const LoginForm = () => {
           </div>
           <input className={styles.input} type='password' name='password' placeholder='Your password' onChange={handleInputChange} />
           <button type='submit' className={styles.buttonLogin} onClick={handleSubmitButtonClick}>Sign in</button>
-          <div className={styles.text}>Don't have an account? <span>Sign Up</span></div>
+          <div className={styles.text}>Don't have an account? <span onClick={() => navigate('/Signup')}>Sign Up</span></div>
         </form>
       </div>
   );

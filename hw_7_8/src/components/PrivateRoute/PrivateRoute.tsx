@@ -7,7 +7,7 @@ interface IPrivateRoute {
   root: string;
 }
 
-const PrivateRoute = ({children,dependency,root }: IPrivateRoute) => {
+const PrivateRoute = ({children, dependency, root }: IPrivateRoute) => {
   if (dependency) {
     return <>{children}</>
   } 

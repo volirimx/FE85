@@ -4,7 +4,7 @@ import { IData } from '../types';
 import styles from "./SelectedPost.module.css"
 
 
-export const SelectedPost = ({ id, image, text, date, title, description }:  IData) => {
+export const SelectedPost = ({ id, image, date, title, description }:  IData) => {
   
   const navigate = useNavigate()
 
