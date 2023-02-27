@@ -5,11 +5,13 @@ import Tabs from "../../components/Tabs/Tabs";
 import MediumCard from "../../components/MediumCards/MediumCards";
 import SmallCard from "../../components/SmallCards/SmallCards";
 import ButtonPagination from "../../components/ButtonPagination/ButtonPagination";
-import { posts, tabs } from "../../utility/posts";
+import { tabs } from "../../utility/posts";
+import { useAppSelector } from "../../redux/hooks";
 
 
 const AllPosts = () => {
     const [activeTab, setActiveTab] = useState(0)
+    const posts = useAppSelector((store) => store.favorite.cards )
 
     return (
         <div>

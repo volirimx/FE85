@@ -10,16 +10,6 @@ const Modal = () => {
 
     const card = useAppSelector((store) => store.modal.previewCard);
     const dispatch = useAppDispatch()
-    
-    // const nextPost = (event: any) => {
-    //     event.stopPropagation()
-    //     dispatch(showNextCard())
-    // };
-
-    // const prevPost = (event: any) => {
-    //     event.stopPropagation()
-    //     dispatch(showPrevCard())
-    // };
 
     if (!card) return null; 
         return (

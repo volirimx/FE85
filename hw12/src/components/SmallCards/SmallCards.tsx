@@ -20,29 +20,16 @@ const SmallCard = ({card}: ISmallCard) => {
         dispatch(openModal(card))
     }
     const favoritePost = (event: any) => {
-        event.preventDefault();
         event.stopPropagation();
         dispatch(getFavoritePost(card.id))
     }
 
     const navigate = useNavigate()
 
-    // const favCard = (event: any) => {
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //     let ind = card.favorite 
-    //     ind = true
-        
-    //     if ( ind === true && !favorite.includes(card) ) {
-    //         console.log(favorite);
-    //         return favorite.push(card);
-    //     } else return;
-    // }
-
     return (
         <div>
             <button onClick={previewCard}>Show</button>
-            <div className={styles.card} onClick={() => navigate(`${card.id}`) }>
+            <div className={card.favorite ? styles.cardActive : styles.card} onClick={() => navigate(`${card.id}`) }>
                 <div className={styles.content}>
                     <div>
                         <div className={styles.date}>{card.date}</div>

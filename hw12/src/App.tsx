@@ -13,15 +13,9 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import Modal from './components/Modal/Modal';
-import { posts } from './utility/posts';
 import FavoriteCard from './pages/FavoriteCard/FavoriteCard';
+import { useAppSelector } from './redux/hooks';
 
-
-
-const title = posts.map(item => item.title);
-const date = posts.map(item => item.date);
-const image = posts.map(item => item.image);
-const description = posts.map(item => item.description);
 
 type ThemeContext = {
     theme?: string;
@@ -34,6 +28,7 @@ export const ThemeContext = React.createContext<ThemeContext>({})
 
 
 function App() {
+
 
     const [theme, setTheme] = useState("light")
     const changeThemeFunc= () => {

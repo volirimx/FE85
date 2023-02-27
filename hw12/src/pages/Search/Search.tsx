@@ -6,12 +6,14 @@ import { title } from 'process';
 import SmallCard from '../../components/SmallCards/SmallCards';
 import MediumCard from '../../components/MediumCards/MediumCards';
 import ButtonPagination from '../../components/ButtonPagination/ButtonPagination';
-import { posts } from '../../utility/posts';
+import { useAppSelector } from '../../redux/hooks';
 
 
 const Search = () => {
 
     const [value, setSearch] = useState("")
+
+    const posts = useAppSelector((store) => store.modal.cards)
 
 
     const titlePost = posts.filter (title => {

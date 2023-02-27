@@ -4,6 +4,12 @@
     padding: 10px;
     width: 310px;
 }
+.cardActive {
+    border: 3px solid rgb(241, 238, 238);
+    background-color: rgb(126, 126, 195);
+    padding: 10px;
+    width: 310px;
+}
 .image {
     width: 80px;
     height: 80px;
