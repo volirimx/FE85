@@ -22,6 +22,8 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { useAppSelector } from './redux/hooks';
 import FavouritePosts from './pages/FavouritePosts/FavouritePosts';
+import { JWTContext, useInitJWT } from './context/authContext';
+import NewPost from './pages/NewPost/NewPost';
 function App() {
 
 
@@ -64,32 +66,38 @@ function App() {
 
   const themeContextValues = useInitThemeContext();
 
+
+  const valuesForJWT = useInitJWT()
+
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <ThemeContext.Provider value={themeContextValues}>
-        <div className={themeContextValues.theme === 'light' ? 'container' : 'containerDark'}>
-          <Menu changeSearch={changeSearch} />
-          <Modal />
-          <Routes>
-          <Route path='/Posts' >
-            <Route index element={<AllPosts />}></Route>
-            <Route element={
-              <AuthRoot route='/posts' dependency={true}>
-                <SelectedPost />
-            </AuthRoot>
-            } path=':id' /> 
-          </Route>
-          <Route element={<Login  />} path='/Login' /> 
-          <Route element={<Signin  />} path='/Signin' /> 
-          <Route element={<Success />} path='/Success' /> 
-          <Route element={<Search search={searchResult} posts={posts} />} path='/Search' />
-          <Route element={<FavouritePosts/>} path='/Favourites' />
-        </Routes>
-          <Copyright />
-        </div>
-        </ThemeContext.Provider>
-      </BrowserRouter>
+      <JWTContext.Provider value={valuesForJWT}>
+        <BrowserRouter>
+          <ThemeContext.Provider value={themeContextValues}>
+          <div className={themeContextValues.theme === 'light' ? 'container' : 'containerDark'}>
+            <Menu changeSearch={changeSearch} />
+            <Modal />
+            <Routes>
+            <Route path='/Posts' >
+              <Route index element={<AllPosts />}></Route>
+              <Route element={
+                <AuthRoot route='/posts' dependency={true}>
+                  <SelectedPost />
+                </AuthRoot>
+              } path=':id' /> 
+            </Route>
+            <Route element={<Login  />} path='/Login' /> 
+            <Route element={<Signin  />} path='/Signin' /> 
+            <Route element={<Success />} path='/Success' /> 
+            <Route element={<Search search={searchResult} posts={posts} />} path='/Search' />
+            <Route element={<FavouritePosts/>} path='/Favourites' />
+            <Route element={<NewPost />} path='/new_post' />
+          </Routes>
+            <Copyright />
+          </div>
+          </ThemeContext.Provider>
+        </BrowserRouter>
+      </JWTContext.Provider>
     </Provider>
   );
 }
