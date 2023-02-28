@@ -1,0 +1,20 @@
+.container {
+  border: 1px solid rgb(206, 205, 205);
+  max-width: 400px;
+  margin: 30px auto 0;
+  padding: 25px;
+}
+
+.input {
+  width: 380px;
+  padding: 10px;
+}
+.input:not(:last-child) {
+  margin: 0 0 10px;
+}
+
+.label {
+  text-transform: capitalize;
+  padding-left: 15px;
+  margin-bottom: 5px;
+}/*# sourceMappingURL=PostForm.module.css.map */

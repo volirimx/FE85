@@ -3,6 +3,7 @@ import themeReducer from './slices/themeSlice'
 import modalReducer from './slices/modalSlice'
 import cardReducer from "./slices/cardSlice";
 import userReducer from "./slices/userSlice";
+import postReducer from "./slices/postSlice";
 
 
 export const store = configureStore({
@@ -10,7 +11,8 @@ export const store = configureStore({
     theme: themeReducer,
     modal: modalReducer,
     card: cardReducer,
-    user: userReducer
+    user: userReducer,
+    post: postReducer
   }
 })
 

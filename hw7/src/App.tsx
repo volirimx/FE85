@@ -20,6 +20,8 @@ import {store} from './redux/store'
 import './App.css'
 import { Provider } from 'react-redux';
 import { useAppSelector } from './redux/hooks';
+import AddPost from './pages/AddPost/AddPost';
+import MyPosts from './pages/MyPosts/MyPosts';
 
 const сards: IPostsProps = {
   posts: [
@@ -162,7 +164,12 @@ function App() {
               <Route path='/signIn' element={<SignIn />} />
               <Route path='/success' element={<Success />} />
               <Route path='/searchPost' element={<SearchPost posts={сards.posts}/>} />
-              <Route path='/savedPosts' element={<SavedPosts />} />
+              <Route path='/savedPosts'>
+                <Route index element={<SavedPosts/>} />
+                <Route path=':id' element={<SelPost posts={сards.posts} />} />
+              </Route>
+              <Route path='/addPost' element={<AddPost />} />
+              <Route path='/myPosts' element={<MyPosts />} />
               <Route path='/activate/:uid/:token' element={<ActivatedPage />} />
             </Routes>
             <Modal posts={сards.posts} />
