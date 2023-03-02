@@ -108,23 +108,23 @@ function App() {
                       <Post card={сardsData.card} />
                     </PrivateRoute>
                     } path=':id' /> 
-                  </Route>
+                </Route>
                   <Route element={<LoginPage  />} path='/Login' /> 
                   <Route path="/activate/:uid/:token" element={<ActivatePage/>}/>
                   <Route element={<SignUpPage  />} path='/Signup' /> 
                   <Route element={<Success />} path='/Success' /> 
                   <Route element={<Unsuccess />} path='/Unsuccess' /> 
                   <Route element={<Search card={сardsData.card} /> } path='/Search' /> 
-                  <Route element={<MyFavorite /> } path='/MyFavorite' /> 
+                  
+                  <Route path='/MyFavorite' >
+                    <Route index element={<MyFavorite />}></Route>
+                    <Route element={
+                      <PrivateRoute root='/favorite' dependency={true}>
+                        <Post card={сardsData.card} />
+                      </PrivateRoute>
+                      } path=':id' /> 
+                  </Route>
               </Routes>
-
-              {/* <Success /> */}
-              {/* <Search card={сardsData.card} /> */}
-              {/* <Posts /> */}
-              {/* <Post card={сardsData.card} /> */}
-              {/* <SignUpPage /> */}
-              {/* <LoginPage/> */}
-            
             </div>
             <Footer />
             <Modal />

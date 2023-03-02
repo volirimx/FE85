@@ -5,11 +5,11 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { Card, dislikeCard, favoriteCard, likeCard, openCardPreview } from '../../redux/slices/cardSlice';
 import styles from "./CardTablet.module.css"
 
-interface Posts {
-  card: Post;
+interface ICard {
+  card: Card;
 }
 
-export const CardTablet = ({ card }:  Posts) => {
+export const CardTablet = ({ card }:  ICard) => {
 
   const theme = useAppSelector((store) => store.theme.value)
   const navigate = useNavigate()
@@ -54,11 +54,11 @@ export const CardTablet = ({ card }:  Posts) => {
             <button className={styles.more}></button>
           </div>
         </div>
-        {/* <button className={styles.readMore} 
+        <button className={styles.readMore} 
         onClick={() => {
         dispatch(openCardPreview(card));
       }}
-      >Preview</button> */}
+      >Preview</button>
       </div>
     </div>
   );

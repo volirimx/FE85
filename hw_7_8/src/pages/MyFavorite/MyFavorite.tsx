@@ -13,8 +13,6 @@ export const MyFavorite = () => {
 
 const cards = useAppSelector((store) => store.cards.cards)
 
-const dispatch = useAppDispatch()
-
 
   return (
     <div className={styles.wrapper}>

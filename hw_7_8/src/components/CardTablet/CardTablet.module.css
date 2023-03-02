@@ -76,6 +76,10 @@ button {
   background-image: url('../../img/bookmark.png');
 }
 
+.bookmarkActive {
+  background-image: url('../../img/bookmarkActive.png');
+}
+
 .more {
   background-image: url('../../img/more.png');
 }
