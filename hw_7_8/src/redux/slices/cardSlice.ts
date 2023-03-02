@@ -11,8 +11,9 @@ export interface Card {
   title: string;
   description: string;
   author: number;
-  like: number;
-  dislike: number
+  likes: number;
+  dislikes: number;
+  favorite: boolean;
 }
 
 export interface CardsState {
@@ -76,7 +77,7 @@ export const cardPreviewSlice = createSlice({
         if (card.id === action.payload) {
           return {
             ...card,
-            likes: card.like + 1,
+            likes: card.likes + 1,
           };
         }
         return card;
@@ -87,10 +88,17 @@ export const cardPreviewSlice = createSlice({
         if (card.id === action.payload) {
           return {
             ...card,
-            dislikes: card.dislike + 1,
+            dislikes: card.dislikes + 1,
           };
         }
         return card;
+      });
+    },
+    favoriteCard: (state, action: PayloadAction<number>) => {
+      state.cards.map((card) => {
+        if (card.id === action.payload) {
+          card.favorite = !card.favorite
+        }
       });
     },
   },
@@ -111,6 +119,7 @@ export const {
   showPrevCard,
   likeCard,
   dislikeCard,
+  favoriteCard
 } = cardPreviewSlice.actions;
 
 export default cardPreviewSlice.reducer;

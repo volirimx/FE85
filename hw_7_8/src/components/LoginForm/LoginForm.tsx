@@ -1,5 +1,8 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { signIn } from "../../api/auth/auth";
+import { useJWTContext } from "../../context/auth";
 import styles from "./LoginForm.module.css"
 
 export interface ILoginForm {
@@ -19,13 +22,18 @@ export const LoginForm = () => {
       ...loginForm,
       [target.name]: target.value,
     })
-    console.log(loginForm);
   }
 
-  const handleSubmitButtonClick = (event: any) => {
+  const {setJWT, jwt} = useJWTContext()
+
+  async function handleSubmitButtonClick (event: any) {
     event.preventDefault()
-    console.log(loginForm)
+    const response = await signIn(loginForm)
+    setJWT?.(response.data)
   }
+
+  console.log(jwt);
+  
 
   const navigate = useNavigate()
 

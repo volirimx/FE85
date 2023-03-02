@@ -6,26 +6,21 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { getAllPosts } from "../../redux/slices/cardSlice";
 import { preparePostsResponce } from "../../utils/utils";
 import PageTemplate from "../PageTemplate/PageTemplate";
-import styles from "./Posts.module.css"
+import styles from "./MyFavorite.module.css"
 
 
-export const Posts = () => {
-
+export const MyFavorite = () => {
 
 const cards = useAppSelector((store) => store.cards.cards)
 
-const dispatch = useAppDispatch();
-
-useEffect(() => {
-  dispatch(getAllPosts());
-}, []);
+const dispatch = useAppDispatch()
 
 
   return (
     <div className={styles.wrapper}>
-      <PageTemplate title={"Blog"} linkName={''}>
+      <PageTemplate title={"My Favorite"} linkName={''}>
           <div className={styles.container}>
-            {cards.map((card) => ( <CardTablet card={card} key={card.id} /> ))}
+            {cards.filter(card => card.favorite).map((card) => ( <CardTablet card={card} key={card.id} /> ))}
           </div>
       </PageTemplate>
     </div>
