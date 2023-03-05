@@ -7,14 +7,14 @@ import styles from './Login.module.css'
 
 
 interface IData {
-    login: string
+    email: string
     password: string 
 }
 
 const Login = () => {
     const [data, setData] = useState(
         {
-            login: '',
+            email: '',
             password: ''
         })
 
