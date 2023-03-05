@@ -1,4 +1,4 @@
-import react, {useState, useEffect} from 'react';
+import react, {useState, useEffect, useMemo} from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import SmallPost from '../SmallPost/SmallPost';
 import Blog from '../../pages/Blog/Blog';
@@ -18,17 +18,30 @@ const Modal = ({ posts }: IPostsProps) => {
   const dispatch = useAppDispatch()
   const selector = useAppSelector(s => s.modal)
 
-  const postIndex = posts.findIndex(post => post.id === selector.value.post.id)
+  let postIndex = posts.findIndex(post => post.id == selector.value.post.id)
 
   const [disabled, setDisabled] = useState({
     prev: false,
     next: false
   })
+
+
   const [post, setPost] = useState<ICurrPost>({
     prev: postIndex -1,
     curr: postIndex,
     next: postIndex + 1,
   })
+
+  useEffect (() => {
+    setPost(
+      {
+        prev: postIndex - 1,
+        curr: postIndex,
+        next: postIndex + 1,
+      }
+    )
+  }, [postIndex])
+
 
   useEffect(() => {
     if (post.prev <= -1) {
@@ -61,7 +74,7 @@ const Modal = ({ posts }: IPostsProps) => {
       curr: post.next,
       next: post.next + 1,
     })
-    dispatch(showPost(posts[post.curr]))
+    dispatch(showPost(posts[post.curr + 1]))
   }
 
   const handleClickPrevButton = () => {
@@ -70,7 +83,7 @@ const Modal = ({ posts }: IPostsProps) => {
       curr: post.prev,
       next: post.prev + 1,
     })
-    dispatch(showPost(posts[post.curr]))
+    dispatch(showPost(posts[post.curr - 1]))
   }
 
   return (

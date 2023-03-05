@@ -11,6 +11,8 @@ import SearchPost from '../src/pages/SearchPost/SearchPost'
 import SelectedPost from '../src/pages/SelectedPost/SelectedPost'
 import SelPost from '../src/pages/SelPost/SelPost'
 import Blog from '../src/pages/Blog/Blog'
+import SavedPosts from '../src/pages/SavedPosts/SavedPosts'
+import ActivatedPage from '../src/pages/ActivatedPage/ActivatedPage'
 import { IPostsProps } from './types/index'
 import { ThemeContext, useInitThemeContext } from "./context/theme"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -18,6 +20,8 @@ import {store} from './redux/store'
 import './App.css'
 import { Provider } from 'react-redux';
 import { useAppSelector } from './redux/hooks';
+import AddPost from './pages/AddPost/AddPost';
+import MyPosts from './pages/MyPosts/MyPosts';
 
 const сards: IPostsProps = {
   posts: [
@@ -153,13 +157,20 @@ function App() {
                   <PrivateRoute dependency={true} route={'/posts'}><SelPost posts={сards.posts} /></PrivateRoute>} />
               </Route> */}
               <Route path='/blog' >
-                <Route index element={<Blog posts={сards.posts} />}/>
+                <Route index element={<Blog posts={сards.posts}/>}/>
                 <Route path=':id' element={<SelPost posts={сards.posts} />} />
               </Route>
               <Route path='/registration' element={<Registration/>}/>
               <Route path='/signIn' element={<SignIn />} />
               <Route path='/success' element={<Success />} />
               <Route path='/searchPost' element={<SearchPost posts={сards.posts}/>} />
+              <Route path='/savedPosts'>
+                <Route index element={<SavedPosts/>} />
+                <Route path=':id' element={<SelPost posts={сards.posts} />} />
+              </Route>
+              <Route path='/addPost' element={<AddPost />} />
+              <Route path='/myPosts' element={<MyPosts />} />
+              <Route path='/activate/:uid/:token' element={<ActivatedPage />} />
             </Routes>
             <Modal posts={сards.posts} />
             <Footer />

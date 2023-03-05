@@ -1,0 +1,23 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    border: 1px solid $color-gray;
+    max-width: 400px;
+    margin: 30px auto 0;
+    padding: 25px;
+}
+
+.input {
+    width: 380px;
+    padding: 10px;
+
+    &:not(:last-child) {
+        margin: 0 0 10px;
+    }
+}
+
+.label {
+    text-transform: capitalize;
+    padding-left: 15px;
+    margin-bottom: 5px;
+}

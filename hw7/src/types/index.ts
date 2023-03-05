@@ -6,9 +6,7 @@ export interface IPost {
   lesson_num: number;
   title: string;
   description?: string;
-  author: string;
-  likes?: number;
-  disLikes?: number;
+  author?: string;
 }
 
 export interface IPostsProps {

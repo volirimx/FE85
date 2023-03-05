@@ -13,7 +13,7 @@ const MediumPost = (props: IPostProps) => {
           <img src={props.image} alt='Картинка' />
         </div>
       </div>
-      <Controls />
+      <Controls id={props.id.toString()}/>
     </div>
   )
 };

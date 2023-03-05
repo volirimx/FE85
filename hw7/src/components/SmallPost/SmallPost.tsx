@@ -12,6 +12,7 @@ const SmallPost = (props: IPostProps) => {
 
   const handleButtonClick = (event: any) => {
     event.stopPropagation();
+    console.log(props)
     dispatch(showPost(props))
   }
   return (
@@ -26,7 +27,7 @@ const SmallPost = (props: IPostProps) => {
         </div>
       </div>
       <button id={props.id.toString()} onClick={handleButtonClick} className={styles.button}>Preview</button>
-      <Controls />
+      <Controls id={props.id.toString()}/>
     </div>
   )
 };
