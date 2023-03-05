@@ -1,14 +1,54 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-
 .posts {
-    width: 60%;
-    display: flex;
-    justify-content: space-between;
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+}
+
+.input {
+  padding-left: 20px;
+  padding-right: 10px;
+  outline: none;
+  background: rgb(185, 105, 227);
+  margin-top: 20px;
+  width: 60%;
+  height: 80px;
+  font-size: 27px;
+  color: black;
+  border: 2px solid rgb(170, 15, 82);
+  border-radius: 40px;
+}
+
+.input:focus-visible {
+  outline: none;
+  border: 2px solid rgb(170, 15, 82);
+}
+
+.input::placeholder {
+  color: black;
+}
+
+.button {
+  outline: none;
+  min-width: 240px;
+  padding: 10px;
+  font-size: 40px;
+  background: rgb(185, 105, 227);
+  border: 2px solid rgb(170, 15, 82);
+  border-radius: 35px;
+  font-weight: bold;
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
 }
