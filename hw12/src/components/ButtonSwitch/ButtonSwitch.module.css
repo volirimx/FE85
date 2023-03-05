@@ -1,0 +1,15 @@
+.container {
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.text {
+    font-weight: bolder;
+}
+.button {
+    background-color: rgb(240, 239, 239);
+    border: 1px solid rgb(240, 239, 239);
+    font-size: 18px;
+    cursor: pointer;
+}

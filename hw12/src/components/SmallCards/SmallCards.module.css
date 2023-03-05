@@ -1,0 +1,44 @@
+.card {
+    border: 3px solid rgb(241, 238, 238);
+    background-color: rgb(241, 238, 238);
+    padding: 10px;
+    width: 310px;
+}
+.cardActive {
+    border: 3px solid rgb(241, 238, 238);
+    background-color: rgb(126, 126, 195);
+    padding: 10px;
+    width: 310px;
+}
+.image {
+    width: 80px;
+    height: 80px;
+}
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.buttons {
+    margin-top: 26px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.date {
+    color: rgb(94, 93, 93);
+    font-size: 14px;
+    font-family: 'Montserrat';
+}
+.title {
+    margin-top: 10px;
+    font-family: 'Unbounded';
+    font-size: 22px;
+    font-weight: bold;
+}
+.button {
+    border: none;
+    background-color: rgb(241, 238, 238);
+    font-size: 18px;
+    cursor: pointer;
+}

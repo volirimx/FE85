@@ -1,0 +1,15 @@
+.footer {
+    margin: 0 auto;
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 3px solid rgb(209, 208, 208);
+}
+.container {
+    height: 125px;
+    background-color: rgb(240, 239, 239);
+}
+.text {
+    color: rgb(163, 162, 162);
+}
