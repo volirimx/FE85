@@ -7,7 +7,7 @@ import PageTemplate from "../PageTemplate/PageTemplate";
 export const Post = ({ card } :IDataProps ) => {
 
   return (
-    <PageTemplate title={"Post"} linkName={"Back to home"}>
+    <PageTemplate title={"Post"} linkName={""}>
       <SelectedPost 
         id={card[0].id} 
         image={card[0].image} 

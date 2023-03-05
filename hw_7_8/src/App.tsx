@@ -15,6 +15,10 @@ import { store } from './redux/store';
 import Modal from './components/Modal/Modal';
 import { SignUpPage } from './pages/SignUpPage/SignUpPage';
 import Search from './pages/Search/Search';
+import { JWTContext, useInitJWT } from './context/auth';
+import ActivatePage from './pages/ActivatePage/ActivatePage';
+import { Unsuccess } from './pages/Unsuccess/Unsuccess';
+import { MyFavorite } from './pages/MyFavorite/MyFavorite';
 
 export const сardsData: IDataProps = {card: [
   {
@@ -80,14 +84,17 @@ export const сardsData: IDataProps = {card: [
 ],
 }
 
+
+
 function App() {
   const themeContextValues = useInitThemeContext()
   const params = useParams()
-  console.log(params);
+  const valuesForJWT = useInitJWT()
   
   
   return (
     <Provider store={store}>
+      <JWTContext.Provider value={valuesForJWT}>
       <BrowserRouter>
         <ThemeContext.Provider value={themeContextValues}>
           <div className="App">
@@ -101,26 +108,30 @@ function App() {
                       <Post card={сardsData.card} />
                     </PrivateRoute>
                     } path=':id' /> 
-                  </Route>
+                </Route>
                   <Route element={<LoginPage  />} path='/Login' /> 
+                  <Route path="/activate/:uid/:token" element={<ActivatePage/>}/>
                   <Route element={<SignUpPage  />} path='/Signup' /> 
                   <Route element={<Success />} path='/Success' /> 
+                  <Route element={<Unsuccess />} path='/Unsuccess' /> 
                   <Route element={<Search card={сardsData.card} /> } path='/Search' /> 
+                  
+                  <Route path='/MyFavorite' >
+                    <Route index element={<MyFavorite />}></Route>
+                    <Route element={
+                      <PrivateRoute root='/favorite' dependency={true}>
+                        <Post card={сardsData.card} />
+                      </PrivateRoute>
+                      } path=':id' /> 
+                  </Route>
               </Routes>
-
-              {/* <Success /> */}
-              {/* <Search card={сardsData.card} /> */}
-              {/* <Posts /> */}
-              {/* <Post card={сardsData.card} /> */}
-              {/* <SignUpPage /> */}
-              {/* <LoginPage/> */}
-            
             </div>
             <Footer />
             <Modal />
           </div>
         </ThemeContext.Provider>
       </BrowserRouter>
+      </JWTContext.Provider>
     </Provider>
   );
 }

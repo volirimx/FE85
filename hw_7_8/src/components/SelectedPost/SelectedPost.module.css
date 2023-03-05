@@ -56,15 +56,8 @@
 }
 
 .bookmark {
-  width: 150px;
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-  padding: 0 10px;
-}
-
-.bookmark::before {
-  content: url('../../img/bookmark.png');
-
-  
+  background-image: url('../../img/bookmark.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;  
 }

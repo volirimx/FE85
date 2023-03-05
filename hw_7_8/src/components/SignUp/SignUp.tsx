@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { registerUser } from "../../redux/slices/userSlice";
@@ -25,12 +26,16 @@ export const SignUp = () => {
       ...signUp,
       [target.name]: target.value,
     })
-    console.log(signUp);
   }
 
   const handleRegister = (e: any) =>  {
     e.preventDefault()
-    dispatch(registerUser(signUp))
+    // dispatch(registerUser(signUp))
+    axios.post("https://studapi.teachmeskills.by/auth/users/", {
+      username: signUp.username,
+      email: signUp.email,
+      password: signUp.password,
+    });
   }
 
   return (

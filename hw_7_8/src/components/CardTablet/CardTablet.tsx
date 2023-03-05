@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Post } from '../../api/post/post';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { Card, dislikeCard, likeCard, openCardPreview } from '../../redux/slices/cardSlice';
+import { Card, dislikeCard, favoriteCard, likeCard, openCardPreview } from '../../redux/slices/cardSlice';
 import styles from "./CardTablet.module.css"
 
 interface ICard {
@@ -13,6 +14,11 @@ export const CardTablet = ({ card }:  ICard) => {
   const theme = useAppSelector((store) => store.theme.value)
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
+
+  const favoritePost = (e: any) => {
+    e.stopPropagation();
+    dispatch(favoriteCard(card.id))
+}
 
   return (
     <div key={card.id} className={theme === 'light'? styles.container : styles.containerDark}  >
@@ -33,22 +39,26 @@ export const CardTablet = ({ card }:  ICard) => {
                 e.stopPropagation();
                 dispatch(likeCard(card.id))
             }}
-              >{card.like}</button>
+              ></button>
             <button className={styles.btnDisLike} 
               onClick={(e) => {
                 e.stopPropagation(); 
                 dispatch(dislikeCard(card.id))
             }}
-            >{card.dislike}</button>
+            ></button>
           </div>
           <div>
-            <button className={styles.bookmark}></button>
+            <button className={styles.bookmark} 
+            onClick={favoritePost}
+            ></button>
             <button className={styles.more}></button>
           </div>
         </div>
-        <button className={styles.readMore} onClick={() => {
+        <button className={styles.readMore} 
+        onClick={() => {
         dispatch(openCardPreview(card));
-      }}>Preview</button>
+      }}
+      >Preview</button>
       </div>
     </div>
   );
